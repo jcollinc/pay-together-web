@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PayTogether — Home</title>
+  <!-- Playful but professional font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav container" aria-label="Primary navigation">
+        <div class="brand">
+          <!-- use provided wordmark.svg -->
+          <img src="assets/images/wordmark.svg" alt="PayTogether" class="logo-img" />
+        </div>
+
+        <div class="nav-actions">
+          <a class="btn pill" href="https://app.paytogether.io" target="_blank" rel="noopener noreferrer">
+            Go To App
+          </a>
+        </div>
+
+        <!-- Mobile: menu toggle replaces the visible button at small widths -->
+        <button class="mobile-menu-toggle" aria-controls="mobileMenu" aria-expanded="false" aria-label="Open menu">
+          <!-- simple hamburger icon -->
+          <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect y="1" width="20" height="2" rx="1" fill="currentColor"/>
+            <rect y="6" width="20" height="2" rx="1" fill="currentColor"/>
+            <rect y="11" width="20" height="2" rx="1" fill="currentColor"/>
+          </svg>
+        </button>
+      </nav>
+
+      <!-- Mobile dropdown menu (controlled via .open class) -->
+      <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
+        <a class="btn pill" href="https://app.paytogether.io" target="_blank" rel="noopener noreferrer">Go To App</a>
+      </div>
+    </header>
+
+    <main id="content">
+      <section class="hero">
+        <div class="container hero-inner">
+          <!-- hero content -->
+          <div class="hero-content">
+            <h1>Split bills with friends and family effortlessly</h1>
+            <p class="lead">Create a group, add expenses in seconds, and get clear balances with smart settle-ups.</p>
+          </div>
+
+          <div class="hero-image">
+            <img src="assets/images/hero.jpg" alt="Friends splitting a bill" />
+          </div>
+        </div>
+      </section>
+
+      <section class="approach">
+        <div class="container approach-inner">
+          <div class="approach-image">
+            <img src="assets/images/approach.jpg" alt="Illustration of our approach" />
+          </div>
+
+          <div class="approach-content">
+            <div class="approach-block">
+              <h1>Our Approach</h1>
+            </div>
+
+            <div class="approach-block">
+              <p class="lead">Clear design, honest features, no fuss.</p>
+            </div>
+
+            <div class="approach-block">
+              <p>We built PayTogether to make splitting costs feel easy, fair, and drama-free. From trips to takeout, we keep the math tidy so your group can focus on the good stuff.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Page sections will be added here, one at a time -->
+    </main>
+
+    <footer>
+      <!-- Footer will go here -->
+    </footer>
+  <!-- bokeh script removed intentionally -->
+  <script>
+      (function(){
+        var toggle = document.querySelector('.mobile-menu-toggle');
+        var menu = document.getElementById('mobileMenu');
+        if(!toggle || !menu) return;
+        toggle.addEventListener('click', function(){
+          var isOpen = toggle.getAttribute('aria-expanded') === 'true';
+          toggle.setAttribute('aria-expanded', String(!isOpen));
+          if(isOpen){
+            menu.classList.remove('open');
+            menu.setAttribute('aria-hidden', 'true');
+          } else {
+            menu.classList.add('open');
+            menu.setAttribute('aria-hidden', 'false');
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>

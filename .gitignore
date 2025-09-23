@@ -1,0 +1,21 @@
+# Node / system files
+node_modules/
+.DS_Store
+
+# Editor
+.vscode/
+*.swp
+
+# Build outputs
+dist/
+build/
+
+# Local dev files
+.env
+
+# Misc
+sp-index.html
+
+# Images
+assets/images/*.psd
+assets/images/*.xcf

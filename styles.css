@@ -1,0 +1,178 @@
+/* Basic reset and layout */
+:root{
+  --container-max: 1100px;
+  --min-page-width: 334px; /* sensible minimum to match navbar */
+  --accent: #0b6cf6;
+  --muted: #6b7280;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+.root-font-size{font-size:16px}
+body{
+  font-family: 'Poppins', Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  margin:0;
+  color:#111827;
+  background:#fff;
+  font-size:18px; /* slightly larger base */
+  line-height:1.45;
+}
+.container{
+  max-width:var(--container-max);
+  min-width:var(--min-page-width);
+  margin:0 auto;
+  padding:0 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+/* Make the header/nav stretch full-width on very wide screens so items
+   don't appear overly centered. The inner content still has padding. */
+.site-header .container{
+  max-width:100%;
+  padding-left:28px;
+  padding-right:28px;
+}
+
+.site-header{
+  background:#6d8f78; /* header background (user provided) */
+  color:white; /* default text color in header */
+  border-bottom:1px solid rgba(255,255,255,0.06);
+}
+.nav{height:72px}
+.brand .logo{font-weight:700; font-size:1.125rem; color:inherit}
+
+/* Brand / logo image sizing */
+.brand{display:flex; align-items:center}
+.logo-img{display:block; width:auto; max-height:48px}
+
+@media (max-width:768px){
+  .logo-img{max-height:42px}
+}
+
+@media (max-width:480px){
+  .logo-img{max-height:36px}
+}
+
+.site-header a{color:inherit}
+.nav-actions .btn{display:inline-block; text-decoration:none}
+.btn.pill{
+  background:#004e00; /* dark green button */
+  color:white;
+  padding:10px 18px;
+  border-radius:999px;
+  font-weight:600;
+  box-shadow:0 4px 10px rgba(0,0,0,0.18);
+}
+.btn.pill:hover{filter:brightness(.95)}
+
+/* Responsive tweaks */
+@media (max-width:600px){
+  .container{padding:0 14px}
+  .nav{height:60px}
+  .brand .logo{font-size:1rem}
+  .btn.pill{padding:8px 14px}
+}
+
+/* Mobile menu toggle */
+.mobile-menu-toggle{
+  display:none;
+  background:transparent;
+  border:0;
+  color:white;
+  margin-left:12px;
+  padding:8px;
+}
+.mobile-menu{
+  display:block;
+  padding:0 20px;
+  background:#074b00;
+  overflow:hidden;
+  max-height:0;
+  opacity:0;
+  transform-origin:top center;
+  transition: max-height 320ms cubic-bezier(.22,.98,.36,1), opacity 220ms ease, transform 280ms cubic-bezier(.22,.98,.36,1);
+}
+.mobile-menu .btn.pill{display:block; width:100%; text-align:center; margin:12px 0}
+
+/* When open, slide down and fade in */
+.mobile-menu.open{max-height:200px; opacity:1; transform:translateY(0)}
+
+@media (max-width:768px){
+  /* hide desktop button and show toggle */
+  .nav-actions{display:none}
+  .mobile-menu-toggle{display:inline-flex; align-items:center}
+}
+
+@media (prefers-reduced-motion: reduce){
+  .mobile-menu, .mobile-menu.open{transition:none}
+}
+
+/* Hero section */
+.hero{
+  padding:48px 0;
+  /* subtle vertical gradient overlay on top of the existing base color */
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(0,0,0,0.06) 100%),
+    #164C2B;
+  color:white;
+  position:relative; /* ensure absolutely-positioned canvas sizes to the hero */
+  overflow:hidden;
+}
+
+/* Approach section: image on the left, three text blocks on the right */
+.approach{
+  padding:32px 0;
+  /* slightly lighter green with a subtle gradient for depth */
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(0,0,0,0.04) 100%),
+    #1c6a3a; /* slightly lighter green than hero */
+  color:white;
+}
+.approach .container{max-width:100%; display:flex; gap:48px; align-items:center; justify-content:flex-start; padding-left:28px; padding-right:28px}
+.approach-image{flex:0 0 46%; overflow:hidden; border-radius:8px}
+.approach-image img{width:100%; height:100%; object-fit:cover; object-position:50% 40%; display:block}
+.approach-content{flex:1 1 54%; display:flex; flex-direction:column; gap:18px}
+.approach-block h1{font-size:2rem; margin:0; font-weight:700}
+.approach-block .lead{font-size:1.125rem; margin:0; opacity:0.95}
+.approach-block p{margin:0; line-height:1.5}
+
+@media (max-width:768px){
+  .approach .container{flex-direction:column; align-items:flex-start}
+  /* enforce a fixed, landscape-like height on smaller viewports and prevent flex stretching */
+  /* increased height for better visibility on small devices */
+  .approach-image{width:100%; height:450px; flex: none}
+}
+
+/* Let the hero section use the full viewport width so the image can scale
+  larger on wide screens while keeping the inner text constrained. */
+.hero .container{max-width:100%; padding-left:28px; padding-right:28px}
+.hero-inner{display:flex; align-items:center; gap:48px}
+.hero-content{flex:0 0 46%; max-width:720px; padding-left:28px}
+.hero-content h1{font-size:2.8rem; margin:0 0 14px; color:inherit; line-height:1.05}
+.hero-content .lead{color:rgba(255,255,255,0.95); font-size:1.25rem; margin:0}
+.hero a{color:inherit}
+
+/* Image wrapper: crop responsively as the viewport narrows. The image
+  will fill its container via object-fit so it stays visually pleasing. */
+.hero-image{flex:1 1 54%; position:relative; min-height:560px; overflow:hidden; border-radius:10px}
+.hero-image img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:60% center; box-shadow:0 12px 40px rgba(0,0,0,0.45)}
+
+@media (max-width:768px){
+  .hero-inner{flex-direction:column-reverse; text-align:left}
+  /* When stacked, let the image be in-flow (not absolutely positioned)
+     so it displays naturally and can be cropped sensibly. */
+  .hero-image{position:relative; min-height:0}
+  .hero-image img{position:relative; display:block; width:100%; height:auto; object-fit:cover; object-position:60% center}
+  .hero-content{padding-left:0; padding-right:0}
+  .hero-content h1{font-size:2rem}
+}
+
+@media (max-width:600px){
+  .hero-content h1{font-size:1.35rem}
+  .hero-content .lead{font-size:1rem}
+}
+
+/* hero content stacking restored to default */
+.hero-inner { position: relative; }
+
