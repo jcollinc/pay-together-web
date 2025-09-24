@@ -98,6 +98,16 @@ html {
   .logo-img {
     max-height: 36px
   }
+  
+  /* Keep the single visible carousel item a fixed size so it doesn't
+     shrink further as the page narrows. Adjust this value if you'd like
+     a larger or smaller fixed card on mobile/small screens. */
+  .carousel-item {
+    width: 360px !important;
+    max-width: 360px !important;
+    min-width: 360px !important;
+}
+
 }
 
 .site-header a {
@@ -462,13 +472,14 @@ html {
   flex-shrink: 0
 }
 
-.carousel-item{
+.carousel-item {
   flex: 1;
-  width: clamp(240px, 22vw, 480px); /* scales with viewport but stays within sensible bounds */
+  width: clamp(240px, 22vw, 480px);
+  /* scales with viewport but stays within sensible bounds */
   aspect-ratio: 3 / 4;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .carousel-card {
@@ -503,20 +514,27 @@ html {
 /* When the carousel shows 2 items (between 769px and 1200px), let each
    card take roughly half the available width so they scale up and use
    the extra carousel space. We match the JS gap (40px) so the math lines up. */
-@media (min-width:901px) and (max-width:1200px){
-  .carousel-track{ gap: 40px; }
-  .carousel-item{
+@media (min-width:901px) and (max-width:1200px) {
+  .carousel-track {
+    gap: 40px;
+  }
+
+  .carousel-item {
     width: calc((100% - 40px) / 2);
     max-width: none;
   }
 }
 
-@media (min-width:1400px){
-  .carousel-item{ width: clamp(320px, 20vw, 640px) }
+@media (min-width:1400px) {
+  .carousel-item {
+    width: clamp(320px, 20vw, 640px)
+  }
 }
 
-@media (min-width:2000px){
-  .carousel-item{ width: clamp(360px, 18vw, 760px) }
+@media (min-width:2000px) {
+  .carousel-item {
+    width: clamp(360px, 18vw, 760px)
+  }
 }
 
 @media (max-width:900px) {
@@ -719,6 +737,20 @@ html {
   overflow: hidden
 }
 
+
+/* When the carousel is in single-card mode (<=900px), lock the visible
+   item size so it doesn't continue shrinking as the viewport narrows. */
+@media (max-width:900px) {
+  .carousel-item {
+    /* Prefer a 360px card, but allow it to shrink when the viewport is
+       slightly below the ideal width so the layout doesn't overflow. The
+       min-width prevents it becoming too small on very narrow devices. */
+    width: min(360px, 88vw) !important;
+    max-width: 360px !important;
+    min-width: 320px !important;
+  }
+}
+
 .glide__arrows {
   position: absolute;
   top: 50%;
@@ -786,7 +818,7 @@ html {
 /* Strong mobile override placed after the absolute arrows so it wins.
   Ensures at <=768px the arrows flow below the carousel (centered) and
   the visible carousel image doesn't shrink further. */
-@media (max-width:768px){
+@media (max-width:768px) {
 
   .carousel-inner,
   .carousel .container.carousel-inner {
@@ -808,8 +840,9 @@ html {
     width: auto !important;
     display: flex !important;
     justify-content: center !important;
-    margin-top:12px !important;
-    padding: 0 !important; /* ensure centered when stacked */
+    margin-top: 12px !important;
+    padding: 0 !important;
+    /* ensure centered when stacked */
     pointer-events: auto !important;
     z-index: 10 !important;
   }
