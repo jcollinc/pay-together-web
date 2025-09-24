@@ -6,6 +6,9 @@
   <title>PayTogether — Home</title>
   <!-- Playful but professional font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Glide carousel (CDN) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/glide.min.js" defer></script>
   <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -77,6 +80,58 @@
       </section>
 
       <!-- Page sections will be added here, one at a time -->
+      <section class="carousel">
+        <div class="container carousel-inner">
+          <div class="glide" id="glide">
+            <div class="glide__track" data-glide-el="track">
+              <ul class="glide__slides">
+                <li class="glide__slide">
+                  <div class="carousel-item">
+                    <div class="carousel-card"><img src="assets/images/approach.jpg" alt=""/></div>
+                    <div class="carousel-caption">One</div>
+                  </div>
+                </li>
+                <li class="glide__slide">
+                  <div class="carousel-item">
+                    <div class="carousel-card"><img src="assets/images/approach.jpg" alt=""/></div>
+                    <div class="carousel-caption">Two</div>
+                  </div>
+                </li>
+                <li class="glide__slide">
+                  <div class="carousel-item">
+                    <div class="carousel-card"><img src="assets/images/approach.jpg" alt=""/></div>
+                    <div class="carousel-caption">Three</div>
+                  </div>
+                </li>
+                <li class="glide__slide">
+                  <div class="carousel-item">
+                    <div class="carousel-card"><img src="assets/images/approach.jpg" alt=""/></div>
+                    <div class="carousel-caption">Four</div>
+                  </div>
+                </li>
+                <li class="glide__slide">
+                  <div class="carousel-item">
+                    <div class="carousel-card"><img src="assets/images/approach.jpg" alt=""/></div>
+                    <div class="carousel-caption">Five</div>
+                  </div>
+                </li>
+                <li class="glide__slide">
+                  <div class="carousel-item">
+                    <div class="carousel-card"><img src="assets/images/approach.jpg" alt=""/></div>
+                    <div class="carousel-caption">Six</div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="glide__arrows" data-glide-el="controls">
+              <button class="glide__arrow glide__arrow--left carousel-btn" data-glide-dir="<">◀</button>
+              <button class="glide__arrow glide__arrow--right carousel-btn" data-glide-dir=">">▶</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <script src="carousel.js" defer></script>
     </main>
 
     <footer>
