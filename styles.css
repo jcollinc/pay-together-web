@@ -1,327 +1,891 @@
 /* Basic reset and layout */
-:root{
+:root {
   --container-max: 1100px;
-  --min-page-width: 334px; /* sensible minimum to match navbar */
+  --min-page-width: 334px;
+  /* sensible minimum to match navbar */
   --accent: #0b6cf6;
   --muted: #6b7280;
 }
-*{box-sizing:border-box}
-html,body{height:100%}
-.root-font-size{font-size:16px}
-body{
+
+* {
+  box-sizing: border-box
+}
+
+html,
+body {
+  height: 100%
+}
+
+.root-font-size {
+  font-size: 16px
+}
+
+body {
   font-family: 'Poppins', Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-  margin:0;
-  color:#111827;
-  background:#fff;
-  font-size:18px; /* slightly larger base */
-  line-height:1.45;
+  margin: 0;
+  color: #111827;
+  background: #fff;
+  font-size: 18px;
+  /* slightly larger base */
+  line-height: 1.45;
 }
 
 /* Mobile overscroll guard: set a safe background on the root to prevent
    white flashes when swiping/pulling beyond scroll bounds on some browsers
    (notably iOS Safari). We also set overscroll-behavior where supported. */
-html{
-  background-color: #164C2B; /* matches the hero base so overscroll shows a dark background instead of white */
+html {
+  background-color: #164C2B;
+  /* matches the hero base so overscroll shows a dark background instead of white */
   -webkit-overflow-scrolling: touch;
   overscroll-behavior-y: contain;
 }
-.container{
-  max-width:var(--container-max);
-  min-width:var(--min-page-width);
-  margin:0 auto;
-  padding:0 20px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+
+.container {
+  max-width: var(--container-max);
+  min-width: var(--min-page-width);
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 /* Make the header/nav stretch full-width on very wide screens so items
    don't appear overly centered. The inner content still has padding. */
-.site-header .container{
-  max-width:100%;
-  padding-left:28px;
-  padding-right:28px;
+.site-header .container {
+  max-width: 100%;
+  padding-left: 28px;
+  padding-right: 28px;
 }
 
-.site-header{
-  background:#6d8f78; /* header background (user provided) */
-  color:white; /* default text color in header */
-  border-bottom:1px solid rgba(255,255,255,0.06);
+.site-header {
+  background: #6d8f78;
+  /* header background (user provided) */
+  color: white;
+  /* default text color in header */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
-.nav{height:72px}
-.brand .logo{font-weight:700; font-size:1.125rem; color:inherit}
+
+.nav {
+  height: 90px
+}
+
+.brand .logo {
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: inherit
+}
 
 /* Brand / logo image sizing */
-.brand{display:flex; align-items:center}
-.logo-img{display:block; width:auto; max-height:48px}
-
-@media (max-width:768px){
-  .logo-img{max-height:42px}
+.brand {
+  display: flex;
+  align-items: center
 }
 
-@media (max-width:480px){
-  .logo-img{max-height:36px}
+.logo-img {
+  display: block;
+  width: auto;
+  max-height: 48px
 }
 
-.site-header a{color:inherit}
-.nav-actions .btn{display:inline-block; text-decoration:none}
-.btn.pill{
-  background:#004e00; /* dark green button */
-  color:white;
-  padding:10px 18px;
-  border-radius:999px;
-  font-weight:600;
-  box-shadow:0 4px 10px rgba(0,0,0,0.18);
+@media (max-width:768px) {
+  .logo-img {
+    max-height: 42px
+  }
 }
-.btn.pill:hover{filter:brightness(.95)}
+
+@media (max-width:480px) {
+  .logo-img {
+    max-height: 36px
+  }
+}
+
+.site-header a {
+  color: inherit
+}
+
+.nav-actions .btn {
+  display: inline-block;
+  text-decoration: none
+}
+
+.btn.pill {
+  background: #004e00;
+  /* dark green button */
+  color: white;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
+}
+
+.btn.pill:hover {
+  filter: brightness(.95)
+}
 
 /* Responsive tweaks */
-@media (max-width:600px){
-  .container{padding:0 14px}
-  .nav{height:60px}
-  .brand .logo{font-size:1rem}
-  .btn.pill{padding:8px 14px}
+@media (max-width:600px) {
+  .container {
+    padding: 0 14px
+  }
+
+  .brand .logo {
+    font-size: 1rem
+  }
+
+  .btn.pill {
+    padding: 8px 14px
+  }
 }
 
 /* Mobile menu toggle */
-.mobile-menu-toggle{
-  display:none;
-  background:transparent;
-  border:0;
-  color:white;
-  margin-left:12px;
-  padding:8px;
+.mobile-menu-toggle {
+  display: none;
+  background: transparent;
+  border: 0;
+  color: white;
+  margin-left: 12px;
+  padding: 8px;
 }
-.mobile-menu{
-  display:block;
-  padding:0 20px;
-  background:#074b00;
-  overflow:hidden;
-  max-height:0;
-  opacity:0;
-  transform-origin:top center;
-  transition: max-height 320ms cubic-bezier(.22,.98,.36,1), opacity 220ms ease, transform 280ms cubic-bezier(.22,.98,.36,1);
+
+.mobile-menu {
+  display: block;
+  padding: 0 20px;
+  background: #074b00;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transform-origin: top center;
+  transition: max-height 320ms cubic-bezier(.22, .98, .36, 1), opacity 220ms ease, transform 280ms cubic-bezier(.22, .98, .36, 1);
 }
-.mobile-menu .btn.pill{display:block; width:100%; text-align:center; margin:12px 0}
+
+.mobile-menu .btn.pill {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin: 12px 0
+}
 
 /* When open, slide down and fade in */
-.mobile-menu.open{max-height:200px; opacity:1; transform:translateY(0)}
-
-@media (max-width:768px){
-  /* hide desktop button and show toggle */
-  .nav-actions{display:none}
-  .mobile-menu-toggle{display:inline-flex; align-items:center}
+.mobile-menu.open {
+  max-height: 200px;
+  opacity: 1;
+  transform: translateY(0)
 }
 
-@media (prefers-reduced-motion: reduce){
-  .mobile-menu, .mobile-menu.open{transition:none}
+@media (max-width:768px) {
+
+  /* hide desktop button and show toggle */
+  .nav-actions {
+    display: none
+  }
+
+  .mobile-menu-toggle {
+    display: inline-flex;
+    align-items: center
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .mobile-menu,
+  .mobile-menu.open {
+    transition: none
+  }
 }
 
 /* Hero section */
-.hero{
-  padding:48px 0;
+.hero {
+  padding: 48px 0;
   /* subtle vertical gradient overlay on top of the existing base color */
   background:
-    linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(0,0,0,0.06) 100%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(0, 0, 0, 0.06) 100%),
     #164C2B;
-  color:white;
-  position:relative; /* ensure absolutely-positioned canvas sizes to the hero */
-  overflow:hidden;
+  color: white;
+  position: relative;
+  /* ensure absolutely-positioned canvas sizes to the hero */
+  overflow: hidden;
 }
 
 /* Approach section: image on the left, three text blocks on the right */
-.approach{
-  padding:32px 0;
+.approach {
+  padding: 32px 0;
   /* slightly darker green with a subtle gradient for depth */
   background:
-    linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(0,0,0,0.04) 100%),
-    #165a33; /* slightly darker green than before */
-  color:white;
-  position: relative; /* allow pseudo-element for top fade */
- }
-.approach .container{max-width:100%; display:flex; gap:48px; align-items:center; justify-content:flex-start; padding-left:28px; padding-right:28px; position:relative; z-index:2}
-.approach-image{flex:0 0 34%; overflow:hidden; border-radius:8px; min-height:480px}
-.approach-image img{width:100%; height:100%; object-fit:cover; object-position:50% 45%; display:block}
-.approach-content{flex:1 1 54%; display:flex; flex-direction:column; gap:18px}
-.approach-block h1{font-size:2rem; margin:0; font-weight:700}
-.approach-block .lead{font-size:1.125rem; margin:0; opacity:0.95}
-.approach-block p{margin:0; line-height:1.5}
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(0, 0, 0, 0.04) 100%),
+    #165a33;
+  /* slightly darker green than before */
+  color: white;
+  position: relative;
+  /* allow pseudo-element for top fade */
+}
 
-@media (max-width:768px){
-  .approach .container{flex-direction:column; align-items:flex-start}
+.approach .container {
+  max-width: 100%;
+  display: flex;
+  gap: 48px;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 28px;
+  padding-right: 28px;
+  position: relative;
+  z-index: 2
+}
+
+.approach-image {
+  flex: 0 0 34%;
+  overflow: hidden;
+  border-radius: 8px;
+  min-height: 480px
+}
+
+.approach-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 45%;
+  display: block
+}
+
+.approach-content {
+  flex: 1 1 54%;
+  display: flex;
+  flex-direction: column;
+  gap: 18px
+}
+
+.approach-block h1 {
+  font-size: 2rem;
+  margin: 0;
+  font-weight: 700
+}
+
+.approach-block .lead {
+  font-size: 1.125rem;
+  margin: 0;
+  opacity: 0.95
+}
+
+.approach-block p {
+  margin: 0;
+  line-height: 1.5
+}
+
+@media (max-width:768px) {
+  .approach .container {
+    flex-direction: column;
+    align-items: flex-start
+  }
+
   /* enforce a fixed, landscape-like height on smaller viewports and prevent flex stretching */
   /* increased height for better visibility on small devices */
-  .approach-image{width:100%; height:450px; flex: none}
+  .approach-image {
+    width: 100%;
+    height: 450px;
+    flex: none
+  }
 }
 
 /* top fade on the approach to blend with the hero below it */
-.approach::before{
+.approach::before {
   content: "";
   position: absolute;
   left: 0;
   right: 0;
   top: 0;
-  height: 120px; /* matches .hero::after height for a smooth blend */
+  height: 120px;
+  /* matches .hero::after height for a smooth blend */
   pointer-events: none;
-  z-index: 1; /* sits under approach content (which is z-index:2) */
-  background: linear-gradient(to bottom, rgba(22,90,51,1) 0%, rgba(22,90,51,0) 100%);
+  z-index: 1;
+  /* sits under approach content (which is z-index:2) */
+  background: linear-gradient(to bottom, rgba(22, 90, 51, 1) 0%, rgba(22, 90, 51, 0) 100%);
 }
 
-@media (max-width:768px){
-  .approach::before{height:80px}
+@media (max-width:768px) {
+  .approach::before {
+    height: 80px
+  }
 }
 
 /* Let the hero section use the full viewport width so the image can scale
   larger on wide screens while keeping the inner text constrained. */
-.hero .container{max-width:100%; padding-left:28px; padding-right:28px}
-.hero-inner{display:flex; align-items:center; gap:48px}
-.hero-inner{z-index:2}
-.hero-content{flex:0 0 46%; max-width:720px; padding-left:28px}
-.hero-content h1{font-size:2.8rem; margin:0 0 14px; color:inherit; line-height:1.05}
-.hero-content .lead{color:rgba(255,255,255,0.95); font-size:1.25rem; margin:0}
-.hero a{color:inherit}
+.hero .container {
+  max-width: 100%;
+  padding-left: 28px;
+  padding-right: 28px
+}
+
+.hero-inner {
+  display: flex;
+  align-items: center;
+  gap: 48px
+}
+
+.hero-inner {
+  z-index: 2
+}
+
+.hero-content {
+  flex: 0 0 46%;
+  max-width: 720px;
+  padding-left: 28px
+}
+
+.hero-content h1 {
+  font-size: 2.8rem;
+  margin: 0 0 14px;
+  color: inherit;
+  line-height: 1.05
+}
+
+.hero-content .lead {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 1.25rem;
+  margin: 0
+}
+
+.hero a {
+  color: inherit
+}
 
 /* Image wrapper: crop responsively as the viewport narrows. The image
   will fill its container via object-fit so it stays visually pleasing. */
-.hero-image{flex:1 1 54%; position:relative; min-height:560px; overflow:hidden; border-radius:10px}
-.hero-image img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:60% center; box-shadow:0 12px 40px rgba(0,0,0,0.45)}
-
-@media (max-width:768px){
-  .hero-inner{flex-direction:column-reverse; text-align:left}
-  /* When stacked, let the image be in-flow (not absolutely positioned)
-     so it displays naturally and can be cropped sensibly. */
-  .hero-image{position:relative; min-height:0}
-  .hero-image img{position:relative; display:block; width:100%; height:auto; object-fit:cover; object-position:60% center}
-  .hero-content{padding-left:0; padding-right:0}
-  .hero-content h1{font-size:2rem}
+.hero-image {
+  flex: 1 1 54%;
+  position: relative;
+  /* maintain a fixed visual aspect ratio so the image scales without distorting */
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  max-width: 100%;
+  /* keep a sensible minimum so very narrow viewports don't collapse the hero */
+  min-height: 360px;
+  overflow: hidden;
+  border-radius: 10px
 }
 
-@media (max-width:600px){
-  .hero-content h1{font-size:1.35rem}
-  .hero-content .lead{font-size:1rem}
+.hero-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 60% center;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+  max-width: none
+}
+
+@media (max-width:768px) {
+  .hero-inner {
+    flex-direction: column-reverse;
+    text-align: left
+  }
+
+  /* When stacked, let the image be in-flow (not absolutely positioned)
+     so it displays naturally and can be cropped sensibly. */
+  .hero-image {
+    position: relative;
+    min-height: 0
+  }
+
+  .hero-image img {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: 60% center
+  }
+
+  .hero-content {
+    padding-left: 0;
+    padding-right: 0
+  }
+
+  .hero-content h1 {
+    font-size: 2rem
+  }
+}
+
+@media (max-width:600px) {
+  .hero-content h1 {
+    font-size: 1.35rem
+  }
+
+  .hero-content .lead {
+    font-size: 1rem
+  }
 }
 
 /* Carousel section */
-.carousel{padding:28px 0; background:transparent; position:relative}
-.carousel-inner{max-width:100%; padding-left:80px; padding-right:80px; display:flex; align-items:center; justify-content:center; position:relative}
+.carousel {
+  padding: 28px 0;
+  background: #76ac8c;
+  position: relative
+}
+
+.carousel-inner {
+  max-width: 100%;
+  padding-left: 80px;
+  padding-right: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative
+}
+
 /* allow the carousel inner container to stretch full-bleed while keeping other containers constrained */
-.carousel .container.carousel-inner{max-width:100vw; padding-left:80px; padding-right:80px}
-.carousel-viewport{overflow:hidden; margin:0 auto; position:relative}
-.carousel-track{display:flex; gap:48px; align-items:center; width: -webkit-max-content; width: max-content; transition:transform 380ms cubic-bezier(.22,.98,.36,1)}
+.carousel .container.carousel-inner {
+  max-width: 100vw;
+  padding-left: 80px;
+  padding-right: 80px
+}
+
+.carousel-viewport {
+  overflow: hidden;
+  margin: 0 auto;
+  position: relative
+}
+
+.carousel-track {
+  display: flex;
+  gap: 48px;
+  align-items: center;
+  width: -webkit-max-content;
+  width: max-content;
+  transition: transform 380ms cubic-bezier(.22, .98, .36, 1)
+}
+
 /* portrait-style carousel items (scaled) */
-.glide__slide{display:flex; justify-content:center; flex-shrink:0}
+.glide__slide {
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0
+}
+
 .carousel-item{
-  flex:1;
-  width:100%;
-  max-width:320px;
+  flex: 1;
+  width: clamp(240px, 22vw, 480px); /* scales with viewport but stays within sensible bounds */
   aspect-ratio: 3 / 4;
   display:flex;
   flex-direction:column;
   align-items:center;
 }
-.carousel-card{
-  width:100%;
+
+.carousel-card {
+  width: 100%;
   aspect-ratio: 3 / 4;
-  border-radius:12px;
-  overflow:hidden;
+  border-radius: 12px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
 }
-.carousel-card img{width:100%; height:100%; object-fit:cover}
-.carousel-caption{margin-top:10px; color:#0f1720; font-weight:600}
 
-@media (max-width:1200px){
-  .carousel-item{max-width:280px;}
+.carousel-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover
+}
+
+.carousel-caption {
+  margin-top: 10px;
+  color: #0f1720;
+  font-weight: 600
+}
+
+@media (max-width:1200px) {
+  .carousel-item {
+    max-width: 280px;
+  }
+
   /* .carousel-card: aspect-ratio controls height */
 }
 
-@media (max-width:900px){
-  .carousel-item{max-width:240px;}
+/* When the carousel shows 2 items (between 769px and 1200px), let each
+   card take roughly half the available width so they scale up and use
+   the extra carousel space. We match the JS gap (40px) so the math lines up. */
+@media (min-width:901px) and (max-width:1200px){
+  .carousel-track{ gap: 40px; }
+  .carousel-item{
+    width: calc((100% - 40px) / 2);
+    max-width: none;
+  }
+}
+
+@media (min-width:1400px){
+  .carousel-item{ width: clamp(320px, 20vw, 640px) }
+}
+
+@media (min-width:2000px){
+  .carousel-item{ width: clamp(360px, 18vw, 760px) }
+}
+
+@media (max-width:900px) {
+  .carousel-item {
+    max-width: 240px;
+  }
+
   /* .carousel-card: aspect-ratio controls height */
 }
 
 /* Mobile: single visible card should be larger since it's the sole focus */
-@media (max-width:768px){
-  .carousel-track{gap:24px}
-  .carousel-item{max-width:calc(min(360px, 88vw));}
+@media (max-width:900px) {
+  .carousel-track {
+    gap: 24px
+  }
+
+  .carousel-item {
+    max-width: calc(min(360px, 88vw));
+  }
+
   /* .carousel-card: aspect-ratio controls height */
-  
+
   /* Reduce padding on mobile for more content space */
-  .carousel-inner{padding-left:60px; padding-right:60px}
-  .carousel .container.carousel-inner{padding-left:60px; padding-right:60px}
-  
+  .carousel-inner {
+    padding-left: 60px;
+    padding-right: 60px
+  }
+
+  .carousel .container.carousel-inner {
+    padding-left: 60px;
+    padding-right: 60px
+  }
+
   /* Adjust arrow positioning for mobile */
-  .glide__arrows{padding:0 16px}
-  
+  .glide__arrows {
+    padding: 0 16px
+  }
+
   /* Smaller arrows on mobile */
-  .glide__arrows .carousel-btn{padding:8px 12px; font-size:14px}
+  .glide__arrows .carousel-btn {
+    padding: 8px 12px;
+    font-size: 14px
+  }
 }
 
 /* For very small screens, reduce arrow space even more */
-@media (max-width:480px){
-  .carousel-inner{padding-left:50px; padding-right:50px}
-  .carousel .container.carousel-inner{padding-left:50px; padding-right:50px}
-  .glide__arrows{padding:0 12px}
-  .glide__arrows .carousel-btn{padding:6px 10px; font-size:12px}
+@media (max-width:480px) {
+  .carousel-inner {
+    padding-left: 50px;
+    padding-right: 50px
+  }
+
+  .carousel .container.carousel-inner {
+    padding-left: 50px;
+    padding-right: 50px
+  }
+
+  .glide__arrows {
+    padding: 0 12px
+  }
+
+  .glide__arrows .carousel-btn {
+    padding: 6px 10px;
+    font-size: 12px
+  }
 }
 
-@media (prefers-reduced-motion: reduce){
-  .carousel-track{animation: none}
+@media (prefers-reduced-motion: reduce) {
+  .carousel-track {
+    animation: none
+  }
 }
 
-.carousel-btn{background:rgba(255,255,255,0.06); border:0; color:white; padding:12px 16px; border-radius:6px; cursor:pointer; margin:0 32px}
-.carousel-btn:focus{outline:2px solid rgba(255,255,255,0.12)}
-.carousel-prev{order:0}
-.carousel-next{order:2}
+/* Adjust carousel inner padding on small screens so the visible image area
+   shrinks to make room for arrows positioned outside the carousel. The
+   additional padding equals half the extra width the arrows container adds.
+   These rules intentionally come after the previous responsive blocks so
+   they override earlier padding values. */
+@media (max-width:900px) {
+
+  .carousel-inner,
+  .carousel .container.carousel-inner {
+    /* base 80px + 24px (half of the 48px expansion) = 104px */
+    padding-left: 104px;
+    padding-right: 104px;
+  }
+
+  /* also shrink the glide viewport so the visible carousel area matches the
+     padded container and makes room for arrows outside the bounds */
+  .glide {
+    padding-left: 104px;
+    padding-right: 104px
+  }
+}
+
+@media (max-width:900px) {
+
+  .carousel-inner,
+  .carousel .container.carousel-inner {
+    /* base 60px + 24px = 84px */
+    padding-left: 84px;
+    padding-right: 84px;
+  }
+
+  .glide {
+    padding-left: 84px;
+    padding-right: 84px
+  }
+}
+
+@media (max-width:480px) {
+
+  .carousel-inner,
+  .carousel .container.carousel-inner {
+    /* base 50px + 24px = 74px */
+    padding-left: 74px;
+    padding-right: 74px;
+  }
+
+  .glide {
+    padding-left: 74px;
+    padding-right: 74px
+  }
+}
+
+/* At the single-item breakpoint (mobile stacked layout), place arrows below
+  the carousel and stop further horizontal shrinking of the visible image.
+  This override comes after other responsive rules so it wins at <=900px. */
+@media (max-width:900px) {
+
+  /* restore the original mobile padding so the image doesn't shrink further */
+  .carousel-inner,
+  .carousel .container.carousel-inner {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+
+  /* let the glide viewport use the full available width (no extra padding) */
+  .glide {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* move controls below the carousel, center them, and make them interactive */
+  .glide__arrows {
+    position: static;
+    top: auto;
+    left: auto;
+    transform: none;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    margin-top: 12px;
+    pointer-events: auto;
+    z-index: 10;
+  }
+
+  .glide__arrows .glide__arrow {
+    margin: 0 8px;
+  }
+
+  /* keep the carousel buttons visually distinct when stacked */
+  .glide__arrows .carousel-btn {
+    background: rgba(0, 0, 0, 0.36);
+    padding: 10px 14px;
+  }
+}
+
+.carousel-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 0;
+  color: white;
+  padding: 12px 16px;
+  border-radius: 100px;
+  cursor: pointer;
+  margin: 0 32px
+}
+
+.carousel-btn:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.12)
+}
+
+.carousel-prev {
+  order: 0
+}
+
+.carousel-next {
+  order: 2
+}
 
 /* Position Glide arrows at the carousel edges, extending to viewport width */
-.glide{position:relative; display:flex; justify-content:center}
-.glide__track{max-width:100%; overflow:hidden}
-.glide__arrows{
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%, -50%);
-  width:100vw;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  pointer-events:none; /* allow children to handle pointer events */
-  padding:0 24px; /* breathing room from viewport edges */
-  z-index:12;
+.glide {
+  position: relative;
+  display: flex;
+  justify-content: center
 }
-.glide__arrows .glide__arrow{
-  pointer-events:auto;
-  margin:0;
-  position:relative;
+
+.glide__track {
+  max-width: 100%;
+  overflow: hidden
+}
+
+.glide__arrows {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* keep vertically centered, center horizontally and then expand width so
+     arrow buttons sit just outside the carousel bounds */
+  transform: translate(-50%, -50%);
+  /* expand 160px total (80px each side) so arrows appear fully outside the carousel */
+  width: calc(100% + 160px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+  /* allow children to handle pointer events */
+  /* add horizontal padding so buttons are inset from the viewport edges */
+  padding: 0 24px;
+  z-index: 12;
+}
+
+.glide__arrows .glide__arrow {
+  pointer-events: auto;
+  margin: 0;
+  position: relative;
 }
 
 /* Enhanced arrow styling for viewport edge positioning */
-.glide__arrows .carousel-btn{
-  margin:0;
-    background:rgba(0,0,0,0.4);
-  backdrop-filter:blur(8px);
-  border:1px solid rgba(255,255,255,0.1);
-  box-shadow:0 4px 12px rgba(0,0,0,0.3);
+.glide__arrows .carousel-btn {
+  margin: 0;
+  /* circular button */
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #004e00;
+  /* match .btn.pill */
+  color: white;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.28);
+  pointer-events: auto;
+  transition: filter 160ms ease, transform 140ms ease;
+}
+
+.glide__arrows .carousel-btn:hover {
+  filter: brightness(.95);
+  transform: translateY(-1px)
+}
+
+/* On smaller viewports, reduce the expansion so buttons aren't pushed off-screen */
+@media (max-width:900px) {
+  .glide__arrows {
+    width: calc(100% + 48px);
+    padding: 0 12px;
+  }
 }
 
 /* hero content stacking restored to default */
-.hero-inner { position: relative; }
+.hero-inner {
+  position: relative;
+}
+
+/* Strong mobile override placed after the absolute arrows so it wins.
+  Ensures at <=768px the arrows flow below the carousel (centered) and
+  the visible carousel image doesn't shrink further. */
+@media (max-width:768px){
+
+  .carousel-inner,
+  .carousel .container.carousel-inner {
+    padding-left: 60px !important;
+    padding-right: 60px !important;
+  }
+
+  .glide {
+    padding-left: 0 !important;
+    padding-right: 0 !important
+  }
+
+  .glide .glide__arrows,
+  .glide__arrows {
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    width: auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    margin-top:12px !important;
+    padding: 0 !important; /* ensure centered when stacked */
+    pointer-events: auto !important;
+    z-index: 10 !important;
+  }
+
+  .glide .glide__arrows .glide__arrow,
+  .glide__arrows .glide__arrow {
+    margin: 0 8px !important
+  }
+
+  .glide .glide__arrows .carousel-btn,
+  .glide__arrows .carousel-btn {
+    padding: 10px 14px !important;
+    border-radius: 8px !important
+  }
+
+
+  /* Stacked/mobile arrows: make circular and use the same green background */
+  .glide .glide__arrows .carousel-btn,
+  .glide__arrows .carousel-btn {
+    width: 44px !important;
+    height: 44px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    background: #004e00 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  /* Stack the glide children so the track appears above the arrows */
+  .glide {
+    flex-direction: column !important;
+    align-items: center !important
+  }
+
+  /* Ensure the visible viewport/track uses full width inside the stacked layout */
+  .glide__track,
+  .carousel-viewport {
+    width: 100% !important;
+  }
+}
 
 /* Gentle color fade at the bottom of the hero so it blends into the approach section */
-.hero::after{
+.hero::after {
   content: "";
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
-  height: 120px; /* tune this for more/less fade */
+  height: 120px;
+  /* tune this for more/less fade */
   pointer-events: none;
-  z-index: 1; /* sits under hero content but above the hero background */
-  background: linear-gradient(to bottom, rgba(22,76,43,0) 0%, rgba(22,90,51,1) 100%);
+  z-index: 1;
+  /* sits under hero content but above the hero background */
+  background: linear-gradient(to bottom, rgba(22, 76, 43, 0) 0%, rgba(22, 90, 51, 1) 100%);
 }
 
-@media (max-width:768px){
-  .hero::after{height: 80px}
+@media (max-width:768px) {
+  .hero::after {
+    height: 80px
+  }
 }
 
+/* On very large viewports, stop the hero content from growing past 2000px.
+   This keeps the hero image and content centered while the left/right
+   margins expand as the viewport gets wider. */
+@media (min-width:2000px) {
+
+  /* Cap both hero and approach inner containers so they stop growing past 2000px
+     and remain centered while page margins expand on very wide viewports. */
+  .hero .container,
+  .approach .container,
+  .carousel .container,
+  .carousel .container.carousel-inner {
+    max-width: 2000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

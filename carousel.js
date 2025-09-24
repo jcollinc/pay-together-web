@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', function(){
     autoplay: false,
     keyboard: true,
     breakpoints: {
-      1200: { perView: 3, gap: 40 },
-      900: { perView: 2, gap: 32 },
+      1200: { perView: 2, gap: 40 },
+      900: { perView: 1, gap: 32 },
       768: { perView: 1, gap: 24 }
     }
   });
