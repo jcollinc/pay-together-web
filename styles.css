@@ -98,7 +98,7 @@ html {
   .logo-img {
     max-height: 36px
   }
-  
+
   /* Keep the single visible carousel item a fixed size so it doesn't
      shrink further as the page narrows. Adjust this value if you'd like
      a larger or smaller fixed card on mobile/small screens. */
@@ -106,7 +106,7 @@ html {
     width: 360px !important;
     max-width: 360px !important;
     min-width: 360px !important;
-}
+  }
 
 }
 
@@ -222,12 +222,48 @@ html {
   padding: 32px 0;
   /* slightly darker green with a subtle gradient for depth */
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(0, 0, 0, 0.04) 100%),
+    /* subtle highlight that fades out earlier so the bottom matches the base color */
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(0, 0, 0, 0.00) 60%),
     #165a33;
   /* slightly darker green than before */
   color: white;
   position: relative;
   /* allow pseudo-element for top fade */
+}
+
+/* Wave now lives in the carousel: position it at the top so it never intersects approach content */
+.carousel { position: relative; z-index: 1 }
+
+/* replicate the top portion of .approach inside the carousel so the wave overlays a matching background */
+.carousel::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 180px;
+  /* only the base color here — approach overlay fades out earlier so this will match */
+  background: #165a33;
+  z-index: 1;
+}
+
+.wave-divider {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0; /* sit at the very top of the carousel */
+  overflow: hidden;
+  line-height: 0;
+  height: 180px;
+  pointer-events: none;
+  z-index: 2; /* above the replicated background but below carousel content */
+}
+
+.wave-divider svg { display:block; width:100%; height:100% }
+
+@media (max-width:768px) {
+  .carousel::before { height: 120px }
+  .wave-divider { height: 120px }
 }
 
 .approach .container {
@@ -315,6 +351,12 @@ html {
   .approach::before {
     height: 80px
   }
+}
+/* Ensure the carousel section sits above the wave visually where needed */
+.carousel {
+  position: relative;
+  background: #76ac8c; /* match visible carousel background */
+  z-index: 1;
 }
 
 /* Let the hero section use the full viewport width so the image can scale
