@@ -5,6 +5,11 @@
   /* sensible minimum to match navbar */
   --accent: #0b6cf6;
   --muted: #6b7280;
+  /* brand colors */
+  --brand-dark: #165a33;
+  /* approach / contact dark green */
+  --brand-light: #76ac8c;
+  /* carousel light green */
 }
 
 * {
@@ -224,7 +229,7 @@ html {
   background:
     /* subtle highlight that fades out earlier so the bottom matches the base color */
     linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(0, 0, 0, 0.00) 60%),
-    #165a33;
+    var(--brand-dark);
   /* slightly darker green than before */
   color: white;
   position: relative;
@@ -232,7 +237,10 @@ html {
 }
 
 /* Wave now lives in the carousel: position it at the top so it never intersects approach content */
-.carousel { position: relative; z-index: 1 }
+.carousel {
+  position: relative;
+  z-index: 1
+}
 
 /* replicate the top portion of .approach inside the carousel so the wave overlays a matching background */
 .carousel::before {
@@ -243,7 +251,7 @@ html {
   top: 0;
   height: 180px;
   /* only the base color here — approach overlay fades out earlier so this will match */
-  background: #165a33;
+  background: var(--brand-dark);
   z-index: 1;
 }
 
@@ -251,23 +259,36 @@ html {
   position: absolute;
   left: 0;
   right: 0;
-  top: 0; /* sit at the very top of the carousel */
+  top: 0;
+  /* sit at the very top of the carousel */
   overflow: hidden;
   line-height: 0;
   height: 180px;
   pointer-events: none;
-  z-index: 2; /* above the replicated background but below carousel content */
+  z-index: 2;
+  /* above the replicated background but below carousel content */
 }
 
-.wave-divider svg { display:block; width:100%; height:100% }
+.wave-divider svg {
+  display: block;
+  width: 100%;
+  height: 100%
+}
 
 @media (max-width:768px) {
-  .carousel::before { height: 120px }
-  .wave-divider { height: 120px }
+  .carousel::before {
+    height: 120px
+  }
+
+  .wave-divider {
+    height: 120px
+  }
 }
 
 @media (max-width: 768px) {
-  .carousel { padding-top: 90px }
+  .carousel {
+    padding-top: 90px
+  }
 }
 
 .approach .container {
@@ -356,11 +377,324 @@ html {
     height: 80px
   }
 }
+
 /* Ensure the carousel section sits above the wave visually where needed */
 .carousel {
   position: relative;
-  background: #76ac8c; /* match visible carousel background */
+  background: var(--brand-light);
+  /* match visible carousel background */
   z-index: 1;
+}
+
+/* Contact section (below carousel) - uses the same dark green as .approach */
+.contact {
+  position: relative;
+  /* increase top padding so contact content sits fully below the wave (>= wave height) */
+  padding: 220px 0 48px 0;
+  /* use a solid color so the SVG wave fill matches exactly */
+  background: var(--brand-dark);
+  color: white;
+  overflow: hidden;
+}
+
+/* replicate the carousel background above the wave so the wave appears reversed */
+.contact::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 180px;
+  background: var(--brand-light);
+  /* same as .carousel background */
+  z-index: 1;
+}
+
+/* wave divider positioned at the top of the contact section; the SVG path
+   itself is filled with the contact dark green to create the reversed effect */
+.contact .wave-divider {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  /* sit at the very top of the contact section */
+  overflow: hidden;
+  line-height: 0;
+  height: 180px;
+  pointer-events: none;
+  z-index: 2;
+  /* above the replicated background but below contact content */
+}
+
+.contact .wave-divider svg {
+  display: block;
+  width: 100%;
+  height: 100%
+}
+
+@media (max-width:768px) {
+  .contact::before {
+    height: 120px
+  }
+
+  .contact .wave-divider {
+    height: 120px
+  }
+}
+
+@media (max-width:768px) {
+
+  /* smaller top padding on narrow viewports to match reduced wave height */
+  .contact {
+    padding-top: 160px
+  }
+}
+
+/* ensure contact content sits above the wave (z-index layering) */
+.contact .container {
+  max-width: 100%;
+  padding-left: 28px;
+  padding-right: 28px;
+  z-index: 3;
+  position: relative
+}
+
+.contact-inner {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  justify-content: center
+}
+
+.contact-content {
+  max-width: 720px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center
+}
+
+.contact h2 {
+  margin: 0 0 16px;
+  font-size: 3rem;
+  text-align: center
+}
+
+.contact .lead {
+  margin: 0 0 18px;
+  opacity: 0.95;
+  text-align: center
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 720px;
+  width: 100%;
+  margin: 0 auto
+}
+
+.contact-form label {
+  font-size: 0.9rem
+}
+
+.contact-form input,
+.contact-form textarea,
+.contact-form select {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 0;
+  outline: none;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+}
+
+/* Form layout helpers */
+.contact-form .form-row {
+  display: flex;
+  width: 100%
+}
+
+.contact-form .two-col {
+  gap: 18px
+}
+
+.contact-form .form-field {
+  flex: 1
+}
+
+/* Non-two-column rows should stack so fields span full width */
+.contact-form .form-row:not(.two-col) {
+  flex-direction: column
+}
+
+/* Ensure form controls fill their parent column */
+.contact-form .form-field input,
+.contact-form .form-field textarea,
+.contact-form input,
+.contact-form textarea,
+.contact-form select {
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+}
+
+/* Larger rounded controls to match screenshot */
+/* Inputs: transparent background with a thin white outline */
+.contact-form input,
+.contact-form textarea,
+.contact-form select {
+  border-radius: 20px;
+  padding: 12px 18px;
+  background: transparent;
+  border: 1px solid #ffffff;
+  box-shadow: none;
+  appearance: none;
+  -webkit-appearance: none
+}
+
+/* smooth transitions for interactive feedback */
+.contact-form input,
+.contact-form textarea,
+.contact-form select {
+  transition: background-color 180ms ease, box-shadow 200ms ease, border-color 160ms ease;
+}
+
+.contact-form textarea {
+  border-radius: 16px;
+  padding: 16px;
+  min-height: 120px;
+  width: 100%;
+  max-width: 100%;
+  resize: vertical
+}
+
+/* Slightly lighter box for active / focused control */
+.contact-form input:focus,
+.contact-form textarea:focus,
+.contact-form select:focus {
+  background: transparent;
+  border-color: #ffffff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.36)
+}
+
+/* Labels & required indicator styling */
+.contact-form label {
+  display: block;
+  margin-bottom: 6px;
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 500
+}
+
+.contact-form .req {
+  font-weight: 400;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-left: 6px
+}
+
+/* Submit button: large pill full width like screenshot */
+.contact-submit {
+  display: block;
+  width: 100%;
+  text-align: center;
+  border-radius: 20px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.95);
+  border: 1px solid #ffffff;
+  font-weight: 700;
+  letter-spacing: 0.6px
+}
+
+.contact-submit:hover {
+  filter: brightness(1.05);
+  transform: none
+}
+
+/* Stronger enforcement for outlines in case other rules override */
+.contact .container .contact-form input,
+.contact .container .contact-form textarea,
+.contact .container .contact-form select,
+.contact .container .contact-form .contact-submit {
+  /* keep border-width constant to avoid layout shifts when focusing
+     (use a transparent 2px border and draw the visible inner stroke
+     with an inset box-shadow). */
+  background: transparent !important;
+  border: 2px solid transparent !important;
+  box-shadow: inset 0 0 0 1px #ffffff !important;
+}
+
+/* Ensure the contact submit button respects the desired padding/height
+   even if other .btn.pill rules exist elsewhere. */
+.contact .container .contact-form .contact-submit {
+  padding: 18px 22px !important;
+  line-height: 1 !important;
+  box-sizing: border-box !important;
+  cursor: pointer;
+}
+
+/* Hover / focus: subtle light-green tint using the brand light color. Use
+   !important to override the enforcement block above so the interactive
+   feedback is visible. */
+.contact .container .contact-form input:hover,
+.contact .container .contact-form textarea:hover,
+.contact .container .contact-form select:hover {
+  background: rgba(118, 172, 140, 0.12) !important;
+  /* var(--brand-light) @ ~12% */
+}
+
+.contact .container .contact-form input:focus,
+.contact .container .contact-form textarea:focus,
+.contact .container .contact-form select:focus {
+  /* inner white stroke via inset box-shadow (keeps layout stable) and
+     outer green ring via spread box-shadow */
+  background: rgba(118, 172, 140, 0.18) !important;
+  /* slightly stronger on focus */
+  border: 2px solid transparent !important;
+  box-shadow: inset 0 0 0 2px #ffffff, 0 0 0 6px rgba(118, 172, 140, 0.14) !important;
+  border-radius: 20px !important;
+}
+
+@media (max-width:768px) {
+  .contact-form .two-col {
+    flex-direction: column
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    border-radius: 18px
+  }
+
+  .contact {
+    padding-top: 160px
+  }
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.65)
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28)
+}
+
+/* ensure the SVG wave path exactly matches the contact background color */
+.contact .wave-path {
+  fill: var(--brand-dark)
+}
+
+@media (max-width:768px) {
+  .contact-inner {
+    flex-direction: column
+  }
+
+  .contact-image {
+    display: none
+  }
 }
 
 /* Let the hero section use the full viewport width so the image can scale
@@ -488,15 +822,15 @@ html {
   align-items: center;
   justify-content: center;
   position: relative;
-  z-index: 3; /* ensure carousel content sits above the wave */
+  z-index: 3;
+  /* ensure carousel content sits above the wave */
 }
 
 /* allow the carousel inner container to stretch full-bleed while keeping other containers constrained */
 .carousel .container.carousel-inner {
   max-width: 100vw;
   padding-left: 80px;
-  padding-right: 80px
-  ;
+  padding-right: 80px;
   position: relative;
   z-index: 3;
 }
@@ -971,5 +1305,110 @@ html {
     max-width: 2000px;
     margin-left: auto;
     margin-right: auto;
+  }
+}
+
+/* Footer (matches carousel light green) */
+.site-footer {
+  position: relative; /* ensure wave-divider positioned inside the footer aligns to its top */
+  background: var(--brand-light);
+  color: rgba(255, 255, 255, 0.92);
+  /* make sure footer content begins below the wave (wave height = 180px) */
+  padding: 220px 0 72px 0;
+  z-index: 1;
+}
+
+/* replicate the dark background above the footer so the wave appears reversed
+   (matching approach -> carousel implementation) */
+.site-footer::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 180px;
+  background: var(--brand-dark);
+  z-index: 1;
+}
+
+.site-footer .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  position: relative; /* raise above the wave */
+  z-index: 5;
+}
+
+/* ensure wave inside footer sits visually on top of the footer background but
+   beneath the content (content uses a higher z-index). */
+.site-footer .wave-divider {
+  z-index: 4;
+}
+
+/* ensure the SVG wave path exactly matches the footer background color
+   (same approach as carousel wave) */
+.site-footer .wave-path {
+  fill: var(--brand-light);
+}
+
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-wordmark {
+  font-size: 2.25rem;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  line-height: 1;
+}
+
+.footer-tag {
+  margin: 0;
+  opacity: 0.92;
+  font-size: 0.95rem;
+}
+
+.footer-right {
+  display: flex;
+  gap: 56px;
+  align-items: flex-start;
+}
+
+.footer-col h3 {
+  margin: 0 0 12px 0;
+  font-weight: 600;
+}
+
+.footer-col address,
+.footer-col p {
+  margin: 0;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+@media (max-width:768px) {
+  .site-footer .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-right {
+    gap: 18px;
+    margin-top: 18px;
+    width: 100%;
+    flex-direction: column; /* stack location and contact vertically */
+    align-items: flex-start;
+  }
+
+  .footer-wordmark {
+    font-size: 1.6rem;
+  }
+
+  /* slightly reduce footer padding on small screens so content doesn't feel too tall */
+  .site-footer {
+    padding: 48px 0;
   }
 }

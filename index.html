@@ -95,7 +95,8 @@
       <!-- wave divider sits at the top of the carousel so it doesn't live inside .approach -->
       <div class="wave-divider" aria-hidden="true">
         <svg viewBox="0 0 500 150" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M-0.00,50.10 C150.00,150.33 349.20,-50.10 512.79,61.23 L500.00,150.33 L-0.00,150.33 Z" style="stroke:none; fill:#76ac8c;"></path>
+          <path d="M-0.00,50.10 C150.00,150.33 349.20,-50.10 512.79,61.23 L500.00,150.33 L-0.00,150.33 Z"
+            style="stroke:none; fill:#76ac8c;"></path>
         </svg>
       </div>
       <div class="container carousel-inner">
@@ -163,12 +164,104 @@
         </div>
       </div>
     </section>
+    </section>
+
+    <!-- Contact form section (below carousel) -->
+    <section class="contact">
+      <!-- wave divider sits at the top of the contact so it doesn't live inside .carousel
+           This wave is the reverse of the carousel's top wave: the background behind
+           it should be the carousel light green and the wave itself is the dark
+           green contact background. -->
+      <div class="wave-divider" aria-hidden="true">
+        <svg viewBox="0 0 500 150" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- path identical to the existing wave; fill is set via CSS to ensure an exact match -->
+          <path class="wave-path"
+            d="M-0.00,50.10 C150.00,150.33 349.20,-50.10 512.79,61.23 L500.00,150.33 L-0.00,150.33 Z"
+            style="stroke:none;"></path>
+        </svg>
+      </div>
+
+      <div class="container contact-inner">
+        <div class="contact-content">
+          <h2>Contact Us</h2>
+          <form class="contact-form" action="#" method="post" novalidate>
+            <div class="form-row two-col">
+              <div class="form-field">
+                <label for="first">First Name <span class="req">(required)</span></label>
+                <input id="first" name="first" type="text" />
+              </div>
+
+              <div class="form-field">
+                <label for="last">Last Name</label>
+                <input id="last" name="last" type="text" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="email">Email <span class="req">(required)</span></label>
+                <input id="email" name="email" type="email" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="subject">Subject <span class="req">(required)</span></label>
+                <input id="subject" name="subject" type="text" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="message">Message <span class="req">(required)</span></label>
+                <textarea id="message" name="message" rows="6"></textarea>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <button class="btn pill contact-submit" type="submit">SEND</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
 
     <script src="carousel.js" defer></script>
   </main>
 
-  <footer>
-    <!-- Footer will go here -->
+  <footer class="site-footer">
+    <div class="wave-divider" aria-hidden="true">
+      <svg viewBox="0 0 500 150" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path class="wave-path" d="M-0.00,50.10 C150.00,150.33 349.20,-50.10 512.79,61.23 L500.00,150.33 L-0.00,150.33 Z" style="stroke:none;"></path>
+      </svg>
+    </div>
+
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <div class="footer-wordmark">PayTogether</div>
+        <p class="footer-tag">This app is from Jersey baby — and you're not!</p>
+      </div>
+
+      <div class="footer-right">
+        <div class="footer-col">
+          <h3>Location</h3>
+          <address>
+            123 Demo Street<br />
+            New York, NY 12345
+          </address>
+        </div>
+
+        <div class="footer-col">
+          <h3>Contact</h3>
+          <p>
+            <a href="mailto:support@payevenly.app">support@payevenly.app</a><br />
+            (555) 555-5555
+          </p>
+        </div>
+      </div>
+    </div>
   </footer>
   <!-- bokeh script removed intentionally -->
   <script>
