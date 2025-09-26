@@ -1,17 +1,15 @@
-/* Basic reset and layout */
+/* Variables */
 :root {
   --container-max: 1100px;
   --min-page-width: 334px;
-  /* sensible minimum to match navbar */
   --accent: #0b6cf6;
   --muted: #6b7280;
-  /* brand colors */
   --brand-dark: #165a33;
-  /* approach / contact dark green */
   --brand-light: #76ac8c;
-  /* carousel light green */
+  --brand-footer: #164C2B;
 }
 
+/* Reset */
 * {
   box-sizing: border-box
 }
@@ -21,26 +19,17 @@ body {
   height: 100%
 }
 
-.root-font-size {
-  font-size: 16px
-}
-
 body {
   font-family: 'Poppins', Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
   margin: 0;
   color: #111827;
   background: #fff;
   font-size: 18px;
-  /* slightly larger base */
   line-height: 1.45;
 }
 
-/* Mobile overscroll guard: set a safe background on the root to prevent
-   white flashes when swiping/pulling beyond scroll bounds on some browsers
-   (notably iOS Safari). We also set overscroll-behavior where supported. */
 html {
   background-color: #164C2B;
-  /* matches the hero base so overscroll shows a dark background instead of white */
   -webkit-overflow-scrolling: touch;
   overscroll-behavior-y: contain;
 }
@@ -55,33 +44,23 @@ html {
   justify-content: space-between;
 }
 
-/* Make the header/nav stretch full-width on very wide screens so items
-   don't appear overly centered. The inner content still has padding. */
+/* Header */
+.site-header {
+  background: #6d8f78;
+  color: white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
 .site-header .container {
   max-width: 100%;
   padding-left: 28px;
   padding-right: 28px;
 }
 
-.site-header {
-  background: #6d8f78;
-  /* header background (user provided) */
-  color: white;
-  /* default text color in header */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-}
-
 .nav {
   height: 90px
 }
 
-.brand .logo {
-  font-weight: 700;
-  font-size: 1.125rem;
-  color: inherit
-}
-
-/* Brand / logo image sizing */
 .brand {
   display: flex;
   align-items: center
@@ -93,9 +72,97 @@ html {
   max-height: 48px
 }
 
+.site-header a {
+  color: inherit
+}
+
+.btn.pill {
+  display: inline-block;
+  background: #004e00;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
+  text-decoration: none;
+}
+
+.btn.pill:hover {
+  filter: brightness(.95)
+}
+
+/* Mobile menu */
+.mobile-menu-toggle {
+  display: none;
+  background: transparent;
+  border: 0;
+  color: white;
+  margin-left: 12px;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 200ms ease;
+}
+
+.mobile-menu-toggle:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.mobile-menu {
+  display: block;
+  padding: 0 20px;
+  background: #6d8f78;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1000;
+}
+
+.mobile-menu.open {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+  max-height: 200px;
+}
+
+.mobile-menu .btn.pill {
+  display: block;
+  width: calc(100% - 40px);
+  margin: 20px 20px;
+  text-align: center;
+  background: rgba(0, 78, 0, 0.9);
+  transition: all 200ms ease;
+}
+
+.mobile-menu .btn.pill:hover {
+  background: rgba(0, 78, 0, 1);
+  transform: translateY(-1px);
+}
+
 @media (max-width:768px) {
+  .nav-actions {
+    display: none
+  }
+
+  .mobile-menu-toggle {
+    display: inline-flex;
+    align-items: center
+  }
+
   .logo-img {
     max-height: 42px
+  }
+}
+
+@media (max-width:600px) {
+  .container {
+    padding: 0 14px
+  }
+
+  .btn.pill {
+    padding: 8px 14px
   }
 }
 
@@ -104,100 +171,10 @@ html {
     max-height: 36px
   }
 
-  /* Keep the single visible carousel item a fixed size so it doesn't
-     shrink further as the page narrows. Adjust this value if you'd like
-     a larger or smaller fixed card on mobile/small screens. */
   .carousel-item {
     width: 360px !important;
     max-width: 360px !important;
     min-width: 360px !important;
-  }
-
-}
-
-.site-header a {
-  color: inherit
-}
-
-.nav-actions .btn {
-  display: inline-block;
-  text-decoration: none
-}
-
-.btn.pill {
-  background: #004e00;
-  /* dark green button */
-  color: white;
-  padding: 10px 18px;
-  border-radius: 999px;
-  font-weight: 600;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
-}
-
-.btn.pill:hover {
-  filter: brightness(.95)
-}
-
-/* Responsive tweaks */
-@media (max-width:600px) {
-  .container {
-    padding: 0 14px
-  }
-
-  .brand .logo {
-    font-size: 1rem
-  }
-
-  .btn.pill {
-    padding: 8px 14px
-  }
-}
-
-/* Mobile menu toggle */
-.mobile-menu-toggle {
-  display: none;
-  background: transparent;
-  border: 0;
-  color: white;
-  margin-left: 12px;
-  padding: 8px;
-}
-
-.mobile-menu {
-  display: block;
-  padding: 0 20px;
-  background: #074b00;
-  overflow: hidden;
-  max-height: 0;
-  opacity: 0;
-  transform-origin: top center;
-  transition: max-height 320ms cubic-bezier(.22, .98, .36, 1), opacity 220ms ease, transform 280ms cubic-bezier(.22, .98, .36, 1);
-}
-
-.mobile-menu .btn.pill {
-  display: block;
-  width: 100%;
-  text-align: center;
-  margin: 12px 0
-}
-
-/* When open, slide down and fade in */
-.mobile-menu.open {
-  max-height: 200px;
-  opacity: 1;
-  transform: translateY(0)
-}
-
-@media (max-width:768px) {
-
-  /* hide desktop button and show toggle */
-  .nav-actions {
-    display: none
-  }
-
-  .mobile-menu-toggle {
-    display: inline-flex;
-    align-items: center
   }
 }
 
@@ -209,86 +186,136 @@ html {
   }
 }
 
-/* Hero section */
+/* Hero */
 .hero {
   padding: 48px 0;
-  /* subtle vertical gradient overlay on top of the existing base color */
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(0, 0, 0, 0.06) 100%),
     #164C2B;
   color: white;
   position: relative;
-  /* ensure absolutely-positioned canvas sizes to the hero */
   overflow: hidden;
 }
 
-/* Approach section: image on the left, three text blocks on the right */
-.approach {
-  padding: 32px 0;
-  /* slightly darker green with a subtle gradient for depth */
-  background:
-    /* subtle highlight that fades out earlier so the bottom matches the base color */
-    linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(0, 0, 0, 0.00) 60%),
-    var(--brand-dark);
-  /* slightly darker green than before */
-  color: white;
-  position: relative;
-  /* allow pseudo-element for top fade */
+.hero .container {
+  max-width: 100%;
+  padding-left: 28px;
+  padding-right: 28px
 }
 
-/* Wave now lives in the carousel: position it at the top so it never intersects approach content */
-.carousel {
+.hero-inner {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  z-index: 2;
   position: relative;
-  z-index: 1
 }
 
-/* replicate the top portion of .approach inside the carousel so the wave overlays a matching background */
-.carousel::before {
+.hero-content {
+  flex: 0 0 46%;
+  max-width: 720px;
+  padding-left: 28px
+}
+
+.hero-content h1 {
+  font-size: 2.8rem;
+  margin: 0 0 14px;
+  color: inherit;
+  line-height: 1.05
+}
+
+.hero-content .lead {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 1.25rem;
+  margin: 0
+}
+
+.hero-image {
+  flex: 1 1 54%;
+  position: relative;
+  aspect-ratio: 13 / 9;
+  width: 100%;
+  max-width: 100%;
+  min-height: 360px;
+  overflow: hidden;
+  border-radius: 10px
+}
+
+.hero-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 60% center;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+  max-width: none
+}
+
+.hero::after {
   content: "";
   position: absolute;
   left: 0;
   right: 0;
-  top: 0;
-  height: 180px;
-  /* only the base color here — approach overlay fades out earlier so this will match */
-  background: var(--brand-dark);
-  z-index: 1;
-}
-
-.wave-divider {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  /* sit at the very top of the carousel */
-  overflow: hidden;
-  line-height: 0;
-  height: 180px;
+  bottom: 0;
+  height: 120px;
   pointer-events: none;
-  z-index: 2;
-  /* above the replicated background but below carousel content */
-}
-
-.wave-divider svg {
-  display: block;
-  width: 100%;
-  height: 100%
+  z-index: 1;
+  background: linear-gradient(to bottom, rgba(22, 76, 43, 0) 0%, rgba(22, 90, 51, 1) 100%);
 }
 
 @media (max-width:768px) {
-  .carousel::before {
-    height: 120px
+  .hero-inner {
+    flex-direction: column-reverse;
+    text-align: left
   }
 
-  .wave-divider {
-    height: 120px
+  .hero-image {
+    position: relative;
+    min-height: 0
+  }
+
+  .hero-image img {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: 60% center
+  }
+
+  .hero-content {
+    padding-left: 0;
+    padding-right: 0
+  }
+
+  .hero-content h1 {
+    font-size: 2rem
+  }
+
+  .hero::after {
+    height: 80px
   }
 }
 
-@media (max-width: 768px) {
-  .carousel {
-    padding-top: 90px
+@media (max-width:600px) {
+  .hero-content h1 {
+    font-size: 1.35rem
   }
+
+  .hero-content .lead {
+    font-size: 1rem
+  }
+}
+
+/* Approach */
+.approach {
+  padding: 32px 0;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(0, 0, 0, 0.00) 60%),
+    var(--brand-dark);
+  color: white;
+  position: relative;
 }
 
 .approach .container {
@@ -342,22 +369,6 @@ html {
   line-height: 1.5
 }
 
-@media (max-width:768px) {
-  .approach .container {
-    flex-direction: column;
-    align-items: flex-start
-  }
-
-  /* enforce a fixed, landscape-like height on smaller viewports and prevent flex stretching */
-  /* increased height for better visibility on small devices */
-  .approach-image {
-    width: 100%;
-    height: 450px;
-    flex: none
-  }
-}
-
-/* top fade on the approach to blend with the hero below it */
 .approach::before {
   content: "";
   position: absolute;
@@ -365,39 +376,298 @@ html {
   right: 0;
   top: 0;
   height: 120px;
-  /* matches .hero::after height for a smooth blend */
   pointer-events: none;
   z-index: 1;
-  /* sits under approach content (which is z-index:2) */
   background: linear-gradient(to bottom, rgba(22, 90, 51, 1) 0%, rgba(22, 90, 51, 0) 100%);
 }
 
 @media (max-width:768px) {
+  .approach .container {
+    flex-direction: column;
+    align-items: flex-start
+  }
+
+  .approach-image {
+    width: 100%;
+    height: 450px;
+    flex: none
+  }
+
   .approach::before {
     height: 80px
   }
 }
 
-/* Ensure the carousel section sits above the wave visually where needed */
+/* Wave divider */
+.wave-divider {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  overflow: hidden;
+  line-height: 0;
+  height: 180px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.wave-divider svg {
+  display: block;
+  width: 100%;
+  height: 100%
+}
+
+@media (max-width:768px) {
+  .wave-divider {
+    height: 120px
+  }
+}
+
+/* Carousel */
 .carousel {
   position: relative;
   background: var(--brand-light);
-  /* match visible carousel background */
+  padding: 160px 0 28px;
   z-index: 1;
 }
 
-/* Contact section (below carousel) - uses the same dark green as .approach */
+.carousel::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 180px;
+  background: var(--brand-dark);
+  z-index: 1;
+}
+
+.carousel-inner {
+  max-width: 100vw;
+  padding-left: 80px;
+  padding-right: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 3;
+}
+
+.glide__slide {
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0
+}
+
+.carousel-item {
+  flex: 1;
+  width: clamp(240px, 22vw, 480px);
+  aspect-ratio: 3 / 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.carousel-card {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.carousel-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover
+}
+
+.carousel-caption {
+  margin-top: 10px;
+  color: #0f1720;
+  font-weight: 600
+}
+
+.glide {
+  position: relative;
+  display: flex;
+  justify-content: center
+}
+
+.glide__track {
+  max-width: 100%;
+  overflow: hidden
+}
+
+.glide__arrows {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% + 160px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+  padding: 0 24px;
+  z-index: 12;
+}
+
+.glide__arrows .glide__arrow {
+  pointer-events: auto;
+  margin: 0;
+  position: relative;
+}
+
+.glide__arrows .carousel-btn {
+  margin: 0;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #004e00;
+  color: white;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.28);
+  cursor: pointer;
+  transition: filter 160ms ease, transform 140ms ease;
+}
+
+.glide__arrows .carousel-btn:hover {
+  filter: brightness(.95);
+  transform: translateY(-1px)
+}
+
+.glide__arrows .carousel-btn:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.12)
+}
+
+@media (min-width:901px) and (max-width:1200px) {
+  .carousel-track {
+    gap: 40px;
+  }
+
+  .carousel-item {
+    width: calc((100% - 40px) / 2);
+    max-width: none;
+  }
+}
+
+@media (max-width:1200px) {
+  .carousel-item {
+    max-width: 280px;
+  }
+}
+
+@media (min-width:1400px) {
+  .carousel-item {
+    width: clamp(320px, 20vw, 640px)
+  }
+}
+
+@media (min-width:2000px) {
+  .carousel-item {
+    width: clamp(360px, 18vw, 760px)
+  }
+}
+
+@media (max-width:900px) {
+  .carousel::before {
+    height: 120px
+  }
+
+  .carousel {
+    padding-top: 90px
+  }
+
+  .carousel-item {
+    width: min(360px, 88vw) !important;
+    max-width: 360px !important;
+    min-width: 320px !important;
+  }
+
+  .carousel-track {
+    gap: 24px
+  }
+
+  .carousel-inner {
+    padding-left: 60px;
+    padding-right: 60px
+  }
+
+  .glide__arrows {
+    width: calc(100% + 48px);
+    padding: 0 12px;
+  }
+}
+
+@media (max-width:768px) {
+  .carousel-inner {
+    padding-left: 60px !important;
+    padding-right: 60px !important;
+  }
+
+  .glide {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    flex-direction: column !important;
+    align-items: center !important
+  }
+
+  .glide__arrows {
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    width: auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    margin-top: 12px !important;
+    padding: 0 !important;
+    pointer-events: auto !important;
+    z-index: 10 !important;
+  }
+
+  .glide__arrows .glide__arrow {
+    margin: 0 8px !important
+  }
+
+  .glide__arrows .carousel-btn {
+    width: 44px !important;
+    height: 44px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    background: #004e00 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .glide__track {
+    width: 100% !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carousel-track {
+    animation: none
+  }
+}
+
+/* Contact */
 .contact {
   position: relative;
-  /* increase top padding so contact content sits fully below the wave (>= wave height) */
-  padding: 220px 0 48px 0;
-  /* use a solid color so the SVG wave fill matches exactly */
+  padding: 220px 0 200px 0;
   background: var(--brand-dark);
   color: white;
   overflow: hidden;
 }
 
-/* replicate the carousel background above the wave so the wave appears reversed */
 .contact::before {
   content: "";
   position: absolute;
@@ -406,51 +676,21 @@ html {
   top: 0;
   height: 180px;
   background: var(--brand-light);
-  /* same as .carousel background */
   z-index: 1;
 }
 
-/* wave divider positioned at the top of the contact section; the SVG path
-   itself is filled with the contact dark green to create the reversed effect */
-.contact .wave-divider {
+.contact::after {
+  content: "";
   position: absolute;
   left: 0;
   right: 0;
-  top: 0;
-  /* sit at the very top of the contact section */
-  overflow: hidden;
-  line-height: 0;
-  height: 180px;
+  bottom: 0;
+  height: 120px;
   pointer-events: none;
-  z-index: 2;
-  /* above the replicated background but below contact content */
+  z-index: 1;
+  background: linear-gradient(to bottom, rgba(22, 90, 51, 0) 0%, var(--brand-footer) 100%);
 }
 
-.contact .wave-divider svg {
-  display: block;
-  width: 100%;
-  height: 100%
-}
-
-@media (max-width:768px) {
-  .contact::before {
-    height: 120px
-  }
-
-  .contact .wave-divider {
-    height: 120px
-  }
-}
-
-@media (max-width:768px) {
-
-  /* smaller top padding on narrow viewports to match reduced wave height */
-  .contact {
-    padding-top: 160px
-  }
-}
-
-/* ensure contact content sits above the wave (z-index layering) */
 .contact .container {
   max-width: 100%;
   padding-left: 28px;
@@ -480,12 +720,6 @@ html {
   text-align: center
 }
 
-.contact .lead {
-  margin: 0 0 18px;
-  opacity: 0.95;
-  text-align: center
-}
-
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -495,23 +729,6 @@ html {
   margin: 0 auto
 }
 
-.contact-form label {
-  font-size: 0.9rem
-}
-
-.contact-form input,
-.contact-form textarea,
-.contact-form select {
-  padding: 10px 12px;
-  border-radius: 8px;
-  border: 0;
-  outline: none;
-  font-size: 1rem;
-  background: rgba(255, 255, 255, 0.08);
-  color: white;
-}
-
-/* Form layout helpers */
 .contact-form .form-row {
   display: flex;
   width: 100%
@@ -525,67 +742,16 @@ html {
   flex: 1
 }
 
-/* Non-two-column rows should stack so fields span full width */
 .contact-form .form-row:not(.two-col) {
   flex-direction: column
 }
 
-/* Ensure form controls fill their parent column */
-.contact-form .form-field input,
-.contact-form .form-field textarea,
-.contact-form input,
-.contact-form textarea,
-.contact-form select {
-  width: 100%;
-  display: block;
-  box-sizing: border-box;
-}
-
-/* Larger rounded controls to match screenshot */
-/* Inputs: transparent background with a thin white outline */
-.contact-form input,
-.contact-form textarea,
-.contact-form select {
-  border-radius: 20px;
-  padding: 12px 18px;
-  background: transparent;
-  border: 1px solid #ffffff;
-  box-shadow: none;
-  appearance: none;
-  -webkit-appearance: none
-}
-
-/* smooth transitions for interactive feedback */
-.contact-form input,
-.contact-form textarea,
-.contact-form select {
-  transition: background-color 180ms ease, box-shadow 200ms ease, border-color 160ms ease;
-}
-
-.contact-form textarea {
-  border-radius: 16px;
-  padding: 16px;
-  min-height: 120px;
-  width: 100%;
-  max-width: 100%;
-  resize: vertical
-}
-
-/* Slightly lighter box for active / focused control */
-.contact-form input:focus,
-.contact-form textarea:focus,
-.contact-form select:focus {
-  background: transparent;
-  border-color: #ffffff;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.36)
-}
-
-/* Labels & required indicator styling */
 .contact-form label {
   display: block;
   margin-bottom: 6px;
   color: rgba(255, 255, 255, 0.92);
-  font-weight: 500
+  font-weight: 500;
+  font-size: 0.9rem;
 }
 
 .contact-form .req {
@@ -595,69 +761,91 @@ html {
   margin-left: 6px
 }
 
-/* Submit button: large pill full width like screenshot */
+.contact-form input,
+.contact-form textarea,
+.contact-form select {
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+  border-radius: 20px;
+  padding: 12px 18px;
+  background: transparent;
+  border: 2px solid transparent;
+  box-shadow: inset 0 0 0 1px #ffffff;
+  color: white;
+  font-size: 1rem;
+  transition: background-color 180ms ease, box-shadow 200ms ease;
+}
+
+.contact-form textarea {
+  border-radius: 16px;
+  padding: 16px;
+  min-height: 120px;
+  resize: vertical
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.65)
+}
+
+.contact-form input:hover,
+.contact-form textarea:hover,
+.contact-form select:hover {
+  background: rgba(118, 172, 140, 0.12);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus,
+.contact-form select:focus {
+  background: rgba(118, 172, 140, 0.18);
+  border: 2px solid transparent;
+  box-shadow: inset 0 0 0 2px #ffffff, 0 0 0 6px rgba(118, 172, 140, 0.14);
+  outline: none;
+}
+
 .contact-submit {
   display: block;
   width: 100%;
   text-align: center;
   border-radius: 20px;
-  background: transparent;
+  background: transparent !important;
   color: rgba(255, 255, 255, 0.95);
-  border: 1px solid #ffffff;
+  border: 1px solid #ffffff !important;
+  box-shadow: none !important;
   font-weight: 700;
-  letter-spacing: 0.6px
+  letter-spacing: 0.6px;
+  padding: 24px 30px !important;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.contact-form .contact-submit,
+button.contact-submit {
+  padding: 18px 30px !important;
 }
 
 .contact-submit:hover {
   filter: brightness(1.05);
-  transform: none
 }
 
-/* Stronger enforcement for outlines in case other rules override */
-.contact .container .contact-form input,
-.contact .container .contact-form textarea,
-.contact .container .contact-form select,
-.contact .container .contact-form .contact-submit {
-  /* keep border-width constant to avoid layout shifts when focusing
-     (use a transparent 2px border and draw the visible inner stroke
-     with an inset box-shadow). */
-  background: transparent !important;
-  border: 2px solid transparent !important;
-  box-shadow: inset 0 0 0 1px #ffffff !important;
-}
-
-/* Ensure the contact submit button respects the desired padding/height
-   even if other .btn.pill rules exist elsewhere. */
-.contact .container .contact-form .contact-submit {
-  padding: 18px 22px !important;
-  line-height: 1 !important;
-  box-sizing: border-box !important;
-  cursor: pointer;
-}
-
-/* Hover / focus: subtle light-green tint using the brand light color. Use
-   !important to override the enforcement block above so the interactive
-   feedback is visible. */
-.contact .container .contact-form input:hover,
-.contact .container .contact-form textarea:hover,
-.contact .container .contact-form select:hover {
-  background: rgba(118, 172, 140, 0.12) !important;
-  /* var(--brand-light) @ ~12% */
-}
-
-.contact .container .contact-form input:focus,
-.contact .container .contact-form textarea:focus,
-.contact .container .contact-form select:focus {
-  /* inner white stroke via inset box-shadow (keeps layout stable) and
-     outer green ring via spread box-shadow */
-  background: rgba(118, 172, 140, 0.18) !important;
-  /* slightly stronger on focus */
-  border: 2px solid transparent !important;
-  box-shadow: inset 0 0 0 2px #ffffff, 0 0 0 6px rgba(118, 172, 140, 0.14) !important;
-  border-radius: 20px !important;
+.contact .wave-path {
+  fill: var(--brand-dark)
 }
 
 @media (max-width:768px) {
+  .contact {
+    padding: 160px 0 64px;
+  }
+
+  .contact::before {
+    height: 120px
+  }
+
+  .contact::after {
+    height: 80px;
+  }
+
   .contact-form .two-col {
     flex-direction: column
   }
@@ -667,667 +855,17 @@ html {
     border-radius: 18px
   }
 
-  .contact {
-    padding-top: 160px
-  }
-}
-
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
-  color: rgba(255, 255, 255, 0.65)
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28)
-}
-
-/* ensure the SVG wave path exactly matches the contact background color */
-.contact .wave-path {
-  fill: var(--brand-dark)
-}
-
-@media (max-width:768px) {
   .contact-inner {
     flex-direction: column
   }
-
-  .contact-image {
-    display: none
-  }
 }
 
-/* Let the hero section use the full viewport width so the image can scale
-  larger on wide screens while keeping the inner text constrained. */
-.hero .container {
-  max-width: 100%;
-  padding-left: 28px;
-  padding-right: 28px
-}
-
-.hero-inner {
-  display: flex;
-  align-items: center;
-  gap: 48px
-}
-
-.hero-inner {
-  z-index: 2
-}
-
-.hero-content {
-  flex: 0 0 46%;
-  max-width: 720px;
-  padding-left: 28px
-}
-
-.hero-content h1 {
-  font-size: 2.8rem;
-  margin: 0 0 14px;
-  color: inherit;
-  line-height: 1.05
-}
-
-.hero-content .lead {
-  color: rgba(255, 255, 255, 0.95);
-  font-size: 1.25rem;
-  margin: 0
-}
-
-.hero a {
-  color: inherit
-}
-
-/* Image wrapper: crop responsively as the viewport narrows. The image
-  will fill its container via object-fit so it stays visually pleasing. */
-.hero-image {
-  flex: 1 1 54%;
-  position: relative;
-  /* maintain a fixed visual aspect ratio so the image scales without distorting */
-  aspect-ratio: 16 / 9;
-  width: 100%;
-  max-width: 100%;
-  /* keep a sensible minimum so very narrow viewports don't collapse the hero */
-  min-height: 360px;
-  overflow: hidden;
-  border-radius: 10px
-}
-
-.hero-image img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 60% center;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
-  max-width: none
-}
-
-@media (max-width:768px) {
-  .hero-inner {
-    flex-direction: column-reverse;
-    text-align: left
-  }
-
-  /* When stacked, let the image be in-flow (not absolutely positioned)
-     so it displays naturally and can be cropped sensibly. */
-  .hero-image {
-    position: relative;
-    min-height: 0
-  }
-
-  .hero-image img {
-    position: relative;
-    display: block;
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    object-position: 60% center
-  }
-
-  .hero-content {
-    padding-left: 0;
-    padding-right: 0
-  }
-
-  .hero-content h1 {
-    font-size: 2rem
-  }
-}
-
-@media (max-width:600px) {
-  .hero-content h1 {
-    font-size: 1.35rem
-  }
-
-  .hero-content .lead {
-    font-size: 1rem
-  }
-}
-
-/* Carousel section */
-.carousel {
-  /* add extra top padding so carousel content sits under the wave (inside the light-green area) */
-  padding: 160px 0 28px;
-  background: #76ac8c;
-  position: relative;
-}
-
-.carousel-inner {
-  max-width: 100%;
-  padding-left: 80px;
-  padding-right: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  z-index: 3;
-  /* ensure carousel content sits above the wave */
-}
-
-/* allow the carousel inner container to stretch full-bleed while keeping other containers constrained */
-.carousel .container.carousel-inner {
-  max-width: 100vw;
-  padding-left: 80px;
-  padding-right: 80px;
-  position: relative;
-  z-index: 3;
-}
-
-.carousel-viewport {
-  overflow: hidden;
-  margin: 0 auto;
-  position: relative
-}
-
-.carousel-track {
-  display: flex;
-  gap: 48px;
-  align-items: center;
-  width: -webkit-max-content;
-  width: max-content;
-  transition: transform 380ms cubic-bezier(.22, .98, .36, 1)
-}
-
-/* portrait-style carousel items (scaled) */
-.glide__slide {
-  display: flex;
-  justify-content: center;
-  flex-shrink: 0
-}
-
-.carousel-item {
-  flex: 1;
-  width: clamp(240px, 22vw, 480px);
-  /* scales with viewport but stays within sensible bounds */
-  aspect-ratio: 3 / 4;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.carousel-card {
-  width: 100%;
-  aspect-ratio: 3 / 4;
-  border-radius: 12px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-
-.carousel-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover
-}
-
-.carousel-caption {
-  margin-top: 10px;
-  color: #0f1720;
-  font-weight: 600
-}
-
-@media (max-width:1200px) {
-  .carousel-item {
-    max-width: 280px;
-  }
-
-  /* .carousel-card: aspect-ratio controls height */
-}
-
-/* When the carousel shows 2 items (between 769px and 1200px), let each
-   card take roughly half the available width so they scale up and use
-   the extra carousel space. We match the JS gap (40px) so the math lines up. */
-@media (min-width:901px) and (max-width:1200px) {
-  .carousel-track {
-    gap: 40px;
-  }
-
-  .carousel-item {
-    width: calc((100% - 40px) / 2);
-    max-width: none;
-  }
-}
-
-@media (min-width:1400px) {
-  .carousel-item {
-    width: clamp(320px, 20vw, 640px)
-  }
-}
-
-@media (min-width:2000px) {
-  .carousel-item {
-    width: clamp(360px, 18vw, 760px)
-  }
-}
-
-@media (max-width:900px) {
-  .carousel-item {
-    max-width: 240px;
-  }
-
-  /* .carousel-card: aspect-ratio controls height */
-}
-
-/* Mobile: single visible card should be larger since it's the sole focus */
-@media (max-width:900px) {
-  .carousel-track {
-    gap: 24px
-  }
-
-  .carousel-item {
-    max-width: calc(min(360px, 88vw));
-  }
-
-  /* .carousel-card: aspect-ratio controls height */
-
-  /* Reduce padding on mobile for more content space */
-  .carousel-inner {
-    padding-left: 60px;
-    padding-right: 60px
-  }
-
-  .carousel .container.carousel-inner {
-    padding-left: 60px;
-    padding-right: 60px
-  }
-
-  /* Adjust arrow positioning for mobile */
-  .glide__arrows {
-    padding: 0 16px
-  }
-
-  /* Smaller arrows on mobile */
-  .glide__arrows .carousel-btn {
-    padding: 8px 12px;
-    font-size: 14px
-  }
-}
-
-/* For very small screens, reduce arrow space even more */
-@media (max-width:480px) {
-  .carousel-inner {
-    padding-left: 50px;
-    padding-right: 50px
-  }
-
-  .carousel .container.carousel-inner {
-    padding-left: 50px;
-    padding-right: 50px
-  }
-
-  .glide__arrows {
-    padding: 0 12px
-  }
-
-  .glide__arrows .carousel-btn {
-    padding: 6px 10px;
-    font-size: 12px
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .carousel-track {
-    animation: none
-  }
-}
-
-/* Adjust carousel inner padding on small screens so the visible image area
-   shrinks to make room for arrows positioned outside the carousel. The
-   additional padding equals half the extra width the arrows container adds.
-   These rules intentionally come after the previous responsive blocks so
-   they override earlier padding values. */
-@media (max-width:900px) {
-
-  .carousel-inner,
-  .carousel .container.carousel-inner {
-    /* base 80px + 24px (half of the 48px expansion) = 104px */
-    padding-left: 104px;
-    padding-right: 104px;
-  }
-
-  /* also shrink the glide viewport so the visible carousel area matches the
-     padded container and makes room for arrows outside the bounds */
-  .glide {
-    padding-left: 104px;
-    padding-right: 104px
-  }
-}
-
-@media (max-width:900px) {
-
-  .carousel-inner,
-  .carousel .container.carousel-inner {
-    /* base 60px + 24px = 84px */
-    padding-left: 84px;
-    padding-right: 84px;
-  }
-
-  .glide {
-    padding-left: 84px;
-    padding-right: 84px
-  }
-}
-
-@media (max-width:480px) {
-
-  .carousel-inner,
-  .carousel .container.carousel-inner {
-    /* base 50px + 24px = 74px */
-    padding-left: 74px;
-    padding-right: 74px;
-  }
-
-  .glide {
-    padding-left: 74px;
-    padding-right: 74px
-  }
-}
-
-/* At the single-item breakpoint (mobile stacked layout), place arrows below
-  the carousel and stop further horizontal shrinking of the visible image.
-  This override comes after other responsive rules so it wins at <=900px. */
-@media (max-width:900px) {
-
-  /* restore the original mobile padding so the image doesn't shrink further */
-  .carousel-inner,
-  .carousel .container.carousel-inner {
-    padding-left: 60px;
-    padding-right: 60px;
-  }
-
-  /* let the glide viewport use the full available width (no extra padding) */
-  .glide {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  /* move controls below the carousel, center them, and make them interactive */
-  .glide__arrows {
-    position: static;
-    top: auto;
-    left: auto;
-    transform: none;
-    width: auto;
-    display: flex;
-    justify-content: center;
-    margin-top: 12px;
-    pointer-events: auto;
-    z-index: 10;
-  }
-
-  .glide__arrows .glide__arrow {
-    margin: 0 8px;
-  }
-
-  /* keep the carousel buttons visually distinct when stacked */
-  .glide__arrows .carousel-btn {
-    background: rgba(0, 0, 0, 0.36);
-    padding: 10px 14px;
-  }
-}
-
-.carousel-btn {
-  background: rgba(255, 255, 255, 0.06);
-  border: 0;
-  color: white;
-  padding: 12px 16px;
-  border-radius: 100px;
-  cursor: pointer;
-  margin: 0 32px
-}
-
-.carousel-btn:focus {
-  outline: 2px solid rgba(255, 255, 255, 0.12)
-}
-
-.carousel-prev {
-  order: 0
-}
-
-.carousel-next {
-  order: 2
-}
-
-/* Position Glide arrows at the carousel edges, extending to viewport width */
-.glide {
-  position: relative;
-  display: flex;
-  justify-content: center
-}
-
-.glide__track {
-  max-width: 100%;
-  overflow: hidden
-}
-
-
-/* When the carousel is in single-card mode (<=900px), lock the visible
-   item size so it doesn't continue shrinking as the viewport narrows. */
-@media (max-width:900px) {
-  .carousel-item {
-    /* Prefer a 360px card, but allow it to shrink when the viewport is
-       slightly below the ideal width so the layout doesn't overflow. The
-       min-width prevents it becoming too small on very narrow devices. */
-    width: min(360px, 88vw) !important;
-    max-width: 360px !important;
-    min-width: 320px !important;
-  }
-}
-
-.glide__arrows {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  /* keep vertically centered, center horizontally and then expand width so
-     arrow buttons sit just outside the carousel bounds */
-  transform: translate(-50%, -50%);
-  /* expand 160px total (80px each side) so arrows appear fully outside the carousel */
-  width: calc(100% + 160px);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  pointer-events: none;
-  /* allow children to handle pointer events */
-  /* add horizontal padding so buttons are inset from the viewport edges */
-  padding: 0 24px;
-  z-index: 12;
-}
-
-.glide__arrows .glide__arrow {
-  pointer-events: auto;
-  margin: 0;
-  position: relative;
-}
-
-/* Enhanced arrow styling for viewport edge positioning */
-.glide__arrows .carousel-btn {
-  margin: 0;
-  /* circular button */
-  width: 44px;
-  height: 44px;
-  padding: 0;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background: #004e00;
-  /* match .btn.pill */
-  color: white;
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.28);
-  pointer-events: auto;
-  transition: filter 160ms ease, transform 140ms ease;
-}
-
-.glide__arrows .carousel-btn:hover {
-  filter: brightness(.95);
-  transform: translateY(-1px)
-}
-
-/* On smaller viewports, reduce the expansion so buttons aren't pushed off-screen */
-@media (max-width:900px) {
-  .glide__arrows {
-    width: calc(100% + 48px);
-    padding: 0 12px;
-  }
-}
-
-/* hero content stacking restored to default */
-.hero-inner {
-  position: relative;
-}
-
-/* Strong mobile override placed after the absolute arrows so it wins.
-  Ensures at <=768px the arrows flow below the carousel (centered) and
-  the visible carousel image doesn't shrink further. */
-@media (max-width:768px) {
-
-  .carousel-inner,
-  .carousel .container.carousel-inner {
-    padding-left: 60px !important;
-    padding-right: 60px !important;
-  }
-
-  .glide {
-    padding-left: 0 !important;
-    padding-right: 0 !important
-  }
-
-  .glide .glide__arrows,
-  .glide__arrows {
-    position: static !important;
-    top: auto !important;
-    left: auto !important;
-    transform: none !important;
-    width: auto !important;
-    display: flex !important;
-    justify-content: center !important;
-    margin-top: 12px !important;
-    padding: 0 !important;
-    /* ensure centered when stacked */
-    pointer-events: auto !important;
-    z-index: 10 !important;
-  }
-
-  .glide .glide__arrows .glide__arrow,
-  .glide__arrows .glide__arrow {
-    margin: 0 8px !important
-  }
-
-  .glide .glide__arrows .carousel-btn,
-  .glide__arrows .carousel-btn {
-    padding: 10px 14px !important;
-    border-radius: 8px !important
-  }
-
-
-  /* Stacked/mobile arrows: make circular and use the same green background */
-  .glide .glide__arrows .carousel-btn,
-  .glide__arrows .carousel-btn {
-    width: 44px !important;
-    height: 44px !important;
-    padding: 0 !important;
-    border-radius: 50% !important;
-    background: #004e00 !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-  }
-
-  /* Stack the glide children so the track appears above the arrows */
-  .glide {
-    flex-direction: column !important;
-    align-items: center !important
-  }
-
-  /* Ensure the visible viewport/track uses full width inside the stacked layout */
-  .glide__track,
-  .carousel-viewport {
-    width: 100% !important;
-  }
-}
-
-/* Gentle color fade at the bottom of the hero so it blends into the approach section */
-.hero::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 120px;
-  /* tune this for more/less fade */
-  pointer-events: none;
-  z-index: 1;
-  /* sits under hero content but above the hero background */
-  background: linear-gradient(to bottom, rgba(22, 76, 43, 0) 0%, rgba(22, 90, 51, 1) 100%);
-}
-
-@media (max-width:768px) {
-  .hero::after {
-    height: 80px
-  }
-}
-
-/* On very large viewports, stop the hero content from growing past 2000px.
-   This keeps the hero image and content centered while the left/right
-   margins expand as the viewport gets wider. */
-@media (min-width:2000px) {
-
-  /* Cap both hero and approach inner containers so they stop growing past 2000px
-     and remain centered while page margins expand on very wide viewports. */
-  .hero .container,
-  .approach .container,
-  .carousel .container,
-  .carousel .container.carousel-inner {
-    max-width: 2000px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
-/* Footer (matches carousel light green) */
+/* Footer */
 .site-footer {
-  position: relative; /* ensure wave-divider positioned inside the footer aligns to its top */
-  background: var(--brand-light);
+  position: relative;
+  background: var(--brand-footer);
   color: rgba(255, 255, 255, 0.92);
-  /* make sure footer content begins below the wave (wave height = 180px) */
-  padding: 220px 0 72px 0;
-  z-index: 1;
-}
-
-/* replicate the dark background above the footer so the wave appears reversed
-   (matching approach -> carousel implementation) */
-.site-footer::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  height: 180px;
-  background: var(--brand-dark);
+  padding: 80px 0;
   z-index: 1;
 }
 
@@ -1336,26 +874,31 @@ html {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  position: relative; /* raise above the wave */
+  position: relative;
   z-index: 5;
+  min-height: 120px;
 }
 
-/* ensure wave inside footer sits visually on top of the footer background but
-   beneath the content (content uses a higher z-index). */
-.site-footer .wave-divider {
-  z-index: 4;
+.site-footer a {
+  color: #ffffff !important;
+  text-decoration: none !important;
 }
 
-/* ensure the SVG wave path exactly matches the footer background color
-   (same approach as carousel wave) */
-.site-footer .wave-path {
-  fill: var(--brand-light);
+.site-footer a:visited {
+  color: #ffffff !important;
+}
+
+.site-footer a:hover,
+.site-footer a:active {
+  color: #eaf6ea !important;
+  text-decoration: underline !important;
 }
 
 .footer-left {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  justify-content: center;
 }
 
 .footer-wordmark {
@@ -1374,7 +917,7 @@ html {
 .footer-right {
   display: flex;
   gap: 56px;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .footer-col h3 {
@@ -1389,7 +932,15 @@ html {
   opacity: 0.9;
 }
 
+.footer-col address {
+  font-style: normal;
+}
+
 @media (max-width:768px) {
+  .site-footer {
+    padding: 60px 0;
+  }
+
   .site-footer .container {
     flex-direction: column;
     align-items: flex-start;
@@ -1399,16 +950,38 @@ html {
     gap: 18px;
     margin-top: 18px;
     width: 100%;
-    flex-direction: column; /* stack location and contact vertically */
+    flex-direction: column;
     align-items: flex-start;
   }
 
   .footer-wordmark {
     font-size: 1.6rem;
   }
+}
 
-  /* slightly reduce footer padding on small screens so content doesn't feel too tall */
-  .site-footer {
-    padding: 48px 0;
+/* Large viewport constraints */
+@media (min-width:2000px) {
+
+  .hero .container,
+  .approach .container,
+  .carousel .container,
+  .carousel .container.carousel-inner {
+    max-width: 2000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width:1400px) {
+  .site-footer .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-left: 40px;
+    padding-right: 40px;
+    justify-content: space-between;
+  }
+
+  .footer-right {
+    gap: 96px;
   }
 }
