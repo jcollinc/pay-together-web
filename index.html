@@ -90,9 +90,7 @@
         </div>
       </div>
     </section>
-    <!-- Page sections will be added here, one at a time -->
     <section class="carousel">
-      <!-- wave divider sits at the top of the carousel so it doesn't live inside .approach -->
       <div class="wave-divider" aria-hidden="true">
         <svg viewBox="0 0 500 150" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M-0.00,50.10 C150.00,150.33 349.20,-50.10 512.79,61.23 L500.00,150.33 L-0.00,150.33 Z"
@@ -107,52 +105,60 @@
                 <div class="carousel-item">
                   <div class="carousel-card"><img src="assets/images/1 - Login By Email.png" alt="Login By Email" />
                   </div>
-                  <div class="carousel-caption">1</div>
+                  <h2 class="carousel-caption">Sign In</h2>
+                  <p class="carousel-sub">Sign up with your email, or log in with your Google account</p>
                 </div>
               </li>
               <li class="glide__slide">
                 <div class="carousel-item">
                   <div class="carousel-card"><img src="assets/images/2 - Create or Join.png" alt="Create or Join" />
                   </div>
-                  <div class="carousel-caption">2</div>
+                  <h2 class="carousel-caption">Your Groups</h2>
+                  <p class="carousel-sub">Create or join a group in seconds; keep trips, roommates, and projects separate</p>
                 </div>
               </li>
               <li class="glide__slide">
                 <div class="carousel-item">
-                  <div class="carousel-card"><img src="assets/images/3 - Log expenses.png" alt="Log expenses" /></div>
-                  <div class="carousel-caption">3</div>
+                    <div class="carousel-card"><img src="assets/images/3 - Log expenses.png" alt="Log expenses" /></div>
+                    <h2 class="carousel-caption">Add & Split</h2>
+                    <p class="carousel-sub">Log expenses with equal, custom, or percentage shares</p>
                 </div>
               </li>
               <li class="glide__slide">
                 <div class="carousel-item">
-                  <div class="carousel-card"><img src="assets/images/4 - Clear totals.png" alt="Clear totals" /></div>
-                  <div class="carousel-caption">4</div>
+                    <div class="carousel-card"><img src="assets/images/4 - Clear totals.png" alt="Clear totals" /></div>
+                    <h2 class="carousel-caption">Balance Summary</h2>
+                    <p class="carousel-sub">See clear totals and who's up or down at a glance</p>
                 </div>
               </li>
               <li class="glide__slide">
                 <div class="carousel-item">
-                  <div class="carousel-card"><img src="assets/images/5 - Easily review.png" alt="Easily review" /></div>
-                  <div class="carousel-caption">5</div>
+                    <div class="carousel-card"><img src="assets/images/5 - Easily review.png" alt="Easily review" /></div>
+                    <h2 class="carousel-caption">Split Breakdowns</h2>
+                    <p class="carousel-sub">Easily review who owes what for a given transaction</p>
                 </div>
               </li>
               <li class="glide__slide">
                 <div class="carousel-item">
-                  <div class="carousel-card"><img src="assets/images/6 - Smart suggestions.png"
+                    <div class="carousel-card"><img src="assets/images/6 - Smart suggestions.png"
                       alt="Smart suggestions" /></div>
-                  <div class="carousel-caption">6</div>
+                    <h2 class="carousel-caption">Settle Up</h2>
+                    <p class="carousel-sub">Get smart suggestions for settling balances in the fewest steps</p>
                 </div>
               </li>
               <li class="glide__slide">
                 <div class="carousel-item">
                   <div class="carousel-card"><img src="assets/images/7 - Spending stats.png" alt="Spending stats" />
                   </div>
-                  <div class="carousel-caption">7</div>
+                  <h2 class="carousel-caption">Spending Stats</h2>
+                  <p class="carousel-sub">Get insights into your spending habits and track your expenses over time</p>
                 </div>
               </li>
               <li class="glide__slide">
                 <div class="carousel-item">
                   <div class="carousel-card"><img src="assets/images/8 - Favorites.png" alt="Favorites" /></div>
-                  <div class="carousel-caption">8</div>
+                  <h2 class="carousel-caption">Favorites</h2>
+                  <p class="carousel-sub">Create one-click templates for your most common expenses</p>
                 </div>
               </li>
             </ul>
@@ -168,13 +174,8 @@
 
     <!-- Contact form section (below carousel) -->
     <section class="contact">
-      <!-- wave divider sits at the top of the contact so it doesn't live inside .carousel
-           This wave is the reverse of the carousel's top wave: the background behind
-           it should be the carousel light green and the wave itself is the dark
-           green contact background. -->
       <div class="wave-divider" aria-hidden="true">
         <svg viewBox="0 0 500 150" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- path identical to the existing wave; fill is set via CSS to ensure an exact match -->
           <path class="wave-path"
             d="M-0.00,50.10 C150.00,150.33 349.20,-50.10 512.79,61.23 L500.00,150.33 L-0.00,150.33 Z"
             style="stroke:none;"></path>
@@ -276,12 +277,7 @@
     })();
   </script>
   <script>
-    // Handle contact form submission as a client-side GET navigation so
-    // the browser won't warn about resubmitting POST data on refresh.
     (function () {
-      // Replace the current history entry with an equivalent GET entry so
-      // any previous POST-based navigation (from before these changes)
-      // won't trigger the browser "resubmit form" dialog on reload.
       try {
         window.history.replaceState({}, '', window.location.pathname + window.location.search);
       } catch (e) {
@@ -302,16 +298,9 @@
           if ((el.type === 'checkbox' || el.type === 'radio') && !el.checked) return;
           params.append(el.name, el.value || '');
         });
-
-        // Navigate to the same page with the query string. This uses history.pushState
-        // so the result is visible without creating a POST state that the browser
-        // would try to re-submit on refresh.
         var newUrl = window.location.pathname + (params.toString() ? ('?' + params.toString()) : '');
         window.history.pushState({}, '', newUrl);
 
-        // Optionally show a tiny success hint (non-blocking). We'll just focus the
-        // submit button so keyboard users see the result; you can replace this with
-        // a proper success UI if/when you wire a backend.
         var submit = form.querySelector('[type=submit]');
         if (submit) submit.blur();
       });
