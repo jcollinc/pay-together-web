@@ -101,7 +101,7 @@
       <div class="container pricing-inner">
         <div class="pricing-header">
           <h2>Simple, Fair Pricing</h2>
-          <p class="lead">Start for free. Upgrade when you need more.</p>
+          <p class="lead">Start for free and upgrade when you need more</p>
         </div>
         
         <div class="pricing-cards">
@@ -109,9 +109,11 @@
             <div class="pricing-card-header">
               <h3>Free</h3>
               <div class="price">
-                <span class="currency">$</span>
-                <span class="amount">0</span>
-                <span class="period">forever</span>
+                <div class="price-main">
+                  <span class="currency">$</span>
+                  <span class="amount">0</span>
+                  <span class="period">forever</span>
+                </div>
               </div>
               <p class="plan-description">Perfect for small groups and casual use</p>
             </div>
@@ -168,9 +170,12 @@
             <div class="pricing-card-header">
               <h3>Plus</h3>
               <div class="price">
-                <span class="currency">$</span>
-                <span class="amount">2.99</span>
-                <span class="period">/month</span>
+                <div class="price-main">
+                  <span class="currency">$</span>
+                  <span class="amount">2.99</span>
+                  <span class="period">/month</span>
+                </div>
+                <div class="annual-pill">Or $29.99/year <span class="savings">Save 16%</span></div>
               </div>
               <p class="plan-description">For power users and frequent group activities</p>
             </div>
@@ -217,19 +222,13 @@
                   <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                   </svg>
-                  <span>Smart settle-up suggestions</span>
-                </li>
-                <li class="feature-item">
-                  <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                  </svg>
                   <span>Export data to CSV/Excel</span>
                 </li>
                 <li class="feature-item">
                   <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                   </svg>
-                  <span>Priority access to new features</span>
+                  <span>Early access to new features</span>
                 </li>
               </ul>
             </div>
@@ -238,10 +237,6 @@
               <a class="btn pill primary" href="https://app.paytogether.io" target="_blank" rel="noopener noreferrer">
                 Start Plus Trial
               </a>
-              <p class="annual-note">
-                <strong>Annual:</strong> $29.99/year 
-                <span class="savings">(Save 16%)</span>
-              </p>
             </div>
           </div>
         </div>
@@ -328,10 +323,9 @@
         </div>
       </div>
     </section>
-    </section>
 
-    <!-- Contact form section (below carousel) -->
-    <section class="contact">
+    <!-- FAQ -->
+    <section class="faq" id="faq">
       <div class="wave-divider" aria-hidden="true">
         <svg viewBox="0 0 500 150" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
           <path class="wave-path"
@@ -339,50 +333,50 @@
             style="stroke:none;"></path>
         </svg>
       </div>
-
-      <div class="container contact-inner">
-        <div class="contact-content">
-          <h2>Contact Us</h2>
-          <form class="contact-form" action="#" method="get" novalidate>
-            <div class="form-row two-col">
-              <div class="form-field">
-                <label for="first">First Name <span class="req">(required)</span></label>
-                <input id="first" name="first" type="text" />
-              </div>
-
-              <div class="form-field">
-                <label for="last">Last Name</label>
-                <input id="last" name="last" type="text" />
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-field">
-                <label for="email">Email <span class="req">(required)</span></label>
-                <input id="email" name="email" type="email" />
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-field">
-                <label for="subject">Subject <span class="req">(required)</span></label>
-                <input id="subject" name="subject" type="text" />
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-field">
-                <label for="message">Message <span class="req">(required)</span></label>
-                <textarea id="message" name="message" rows="6"></textarea>
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-field">
-                <button class="btn pill contact-submit" type="submit">SEND</button>
-              </div>
-          </form>
+      <div class="container faq-inner">
+        <div class="faq-header">
+          <h2>Questions? Answers.</h2>
+          <p class="lead">The quick facts people ask about most before they start splitting with PayTogether.</p>
         </div>
+
+        <ul class="faq-list">
+          <li>
+            <details class="faq-item">
+              <summary>Who needs PayTogether Plus?</summary>
+              <p>Every member chooses their own plan. Groups run exactly the same whether someone is Free or Plus. Plus just unlocks personal extras like unlimited favorites, advanced analytics, CSV export, powerful search, and early looks at new tools.</p>
+            </details>
+          </li>
+          <li>
+            <details class="faq-item">
+              <summary>What happens to my favorites if I leave Plus?</summary>
+              <p>You can keep using up to five favorites on the Free plan. When you downgrade, you pick which five stay active. Any extras are safely stored and can be reactivated if you are within the limit, or automatically if you upgrade again.</p>
+            </details>
+          </li>
+          <li>
+            <details class="faq-item">
+              <summary>Can I export my transactions?</summary>
+              <p>Plus members can export group data to CSV, making it simple to run reports, share with other members, or archive history.</p>
+            </details>
+          </li>
+          <li>
+            <details class="faq-item">
+              <summary>Does PayTogether support different currencies?</summary>
+              <p>Groups can be set to any of the currencies we currently support, and we plan to add more in the future. Automatic currency conversions aren't available yet, so each group sticks to one currency for all of its transactions.</p>
+            </details>
+          </li>
+          <li>
+            <details class="faq-item">
+              <summary>Is my data secure?</summary>
+              <p>All communication with PayTogether is encrypted with HTTPS and guarded by strict access controls. Only the people you invite into a group can see its balances, and we never hand that data to outside parties.</p>
+            </details>
+          </li>
+          <li>
+            <details class="faq-item">
+              <summary>How do I get support?</summary>
+              <p>Drop a note to <a href="mailto:hello@paytogether.io">hello@paytogether.io</a>. We aim to respond quickly to every message, and hearing from you helps shape what we build next.</p>
+            </details>
+          </li>
+        </ul>
       </div>
     </section>
 
@@ -401,7 +395,7 @@
         <div class="footer-col">
           <h3>Contact</h3>
           <p>
-            <a href="mailto:support@payevenly.app">support@paytogether.io</a><br />
+            <a href="mailto:hello@paytogether.io">hello@paytogether.io</a><br />
           </p>
         </div>
       </div>
@@ -428,31 +422,16 @@
   </script>
   <script>
     (function () {
-      try {
-        window.history.replaceState({}, '', window.location.pathname + window.location.search);
-      } catch (e) {
-        // ignore replaceState failures on older browsers
-      }
+      var items = document.querySelectorAll('.faq-item');
+      if (!items.length) return;
 
-      var form = document.querySelector('form.contact-form');
-      if (!form) return;
-
-      form.addEventListener('submit', function (ev) {
-        ev.preventDefault();
-
-        // Build a query string from the form controls
-        var params = new URLSearchParams();
-        Array.prototype.slice.call(form.elements).forEach(function (el) {
-          if (!el.name) return;
-          if (el.type === 'submit' || el.disabled) return;
-          if ((el.type === 'checkbox' || el.type === 'radio') && !el.checked) return;
-          params.append(el.name, el.value || '');
+      items.forEach(function (item) {
+        item.addEventListener('click', function (event) {
+          if (event.target.closest('a')) return;
+          if (event.target.closest('summary')) return;
+          event.preventDefault();
+          item.open = !item.open;
         });
-        var newUrl = window.location.pathname + (params.toString() ? ('?' + params.toString()) : '');
-        window.history.pushState({}, '', newUrl);
-
-        var submit = form.querySelector('[type=submit]');
-        if (submit) submit.blur();
       });
     })();
   </script>
