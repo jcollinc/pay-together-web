@@ -1142,13 +1142,17 @@ h2.carousel-caption {
 }
 
 .faq-item a {
-  color: var(--brand-dark);
+  color: rgba(255, 255, 255, 0.95);
   font-weight: 600;
-  text-decoration: none;
+  text-decoration: underline;
+  text-decoration-color: rgba(118, 172, 140, 0.65);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
 }
 
 .faq-item a:hover {
-  text-decoration: underline;
+  color: var(--brand-light);
+  text-decoration-color: var(--brand-light);
 }
 
 .faq .wave-divider {

@@ -342,32 +342,44 @@
         <ul class="faq-list">
           <li>
             <details class="faq-item">
-              <summary>Who needs PayTogether Plus?</summary>
-              <p>Every member chooses their own plan. Groups run exactly the same whether someone is Free or Plus. Plus just unlocks personal extras like unlimited favorites, advanced analytics, CSV export, powerful search, and early looks at new tools.</p>
-            </details>
-          </li>
-          <li>
-            <details class="faq-item">
-              <summary>What happens to my favorites if I leave Plus?</summary>
-              <p>You can keep using up to five favorites on the Free plan. When you downgrade, you pick which five stay active. Any extras are safely stored and can be reactivated if you are within the limit, or automatically if you upgrade again.</p>
-            </details>
-          </li>
-          <li>
-            <details class="faq-item">
-              <summary>Can I export my transactions?</summary>
-              <p>Plus members can export group data to CSV, making it simple to run reports, share with other members, or archive history.</p>
-            </details>
-          </li>
-          <li>
-            <details class="faq-item">
-              <summary>Does PayTogether support different currencies?</summary>
-              <p>Groups can be set to any of the currencies we currently support, and we plan to add more in the future. Automatic currency conversions aren't available yet, so each group sticks to one currency for all of its transactions.</p>
+              <summary>How does PayTogether work?</summary>
+              <p>Create or join a group, add shared expenses in seconds, and PayTogether keeps balances accurate for everyone. It runs in the cloud today - each member logs in from the web to stay in sync. We're working on optional offline support for quick entry when you're out of range.</p>
             </details>
           </li>
           <li>
             <details class="faq-item">
               <summary>Is my data secure?</summary>
               <p>All communication with PayTogether is encrypted with HTTPS and guarded by strict access controls. Only the people you invite into a group can see its balances, and we never hand that data to outside parties.</p>
+            </details>
+          </li>
+          <li>
+            <details class="faq-item">
+              <summary>Do all group members need accounts?</summary>
+              <p>Only people who want to view and interact with the group need accounts and invites. If one person wants to track expenses for everyone, they can add anyone to splits without requiring them to sign up. This works great when one person manages the group while others just settle up in person.</p>
+            </details>
+          </li>
+          <li>
+            <details class="faq-item">
+              <summary>Who needs PayTogether Plus?</summary>
+              <p>PayTogether Plus is perfect for power users who want enhanced personal features. Plus subscribers get unlimited favorites, detailed analytics, CSV exports, and advanced search capabilities.</p>
+            </details>
+          </li>
+          <li>
+            <details class="faq-item">
+              <summary>Does PayTogether support different currencies?</summary>
+              <p>Yes! Automatic currency conversion is not yet available, but planned, along with additional currency options. Until then, each group chooses a single currency for all of its transactions.</p>
+            </details>
+          </li>
+          <li>
+            <details class="faq-item">
+              <summary>What happens to my extra favorites if I leave Plus?</summary>
+              <p>You can keep using up to five favorites on the Free plan. When you downgrade, you pick which five stay active. Any extras are safely stored and can be reactivated if you are within the limit, and will be restored automatically if you upgrade again.</p>
+            </details>
+          </li>
+          <li>
+            <details class="faq-item">
+              <summary>Can I export my transactions?</summary>
+              <p>Plus members can export group data to CSV, making it simple to run reports, share with other members, or archive history.</p>
             </details>
           </li>
           <li>
@@ -417,21 +429,6 @@
           menu.classList.add('open');
           menu.setAttribute('aria-hidden', 'false');
         }
-      });
-    })();
-  </script>
-  <script>
-    (function () {
-      var items = document.querySelectorAll('.faq-item');
-      if (!items.length) return;
-
-      items.forEach(function (item) {
-        item.addEventListener('click', function (event) {
-          if (event.target.closest('a')) return;
-          if (event.target.closest('summary')) return;
-          event.preventDefault();
-          item.open = !item.open;
-        });
       });
     })();
   </script>
