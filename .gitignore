@@ -15,6 +15,7 @@ build/
 
 # Misc
 sp-index.html
+user-docs/
 
 # Images
 assets/images/*.psd
