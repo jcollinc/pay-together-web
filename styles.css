@@ -469,7 +469,7 @@ html {
 
 .pricing-header {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .pricing-header h2 {
@@ -683,6 +683,15 @@ html {
   font-weight: 600;
 }
 
+.pricing-note {
+  margin: 0 auto 32px;
+  text-align: center;
+  color: var(--brand-light);
+  font-size: 1.02rem;
+  font-weight: 600;
+  max-width: 760px;
+}
+
 @media (max-width: 768px) {
   .pricing {
     padding: 100px 0 50px;
@@ -726,9 +735,15 @@ html {
   .amount {
     font-size: 2.25rem;
   }
-}
-
-@media (max-width: 480px) {
+ 
+   .pricing-note {
+    font-size: 0.95rem;
+    margin: 0 auto 24px;
+    padding: 0 16px;
+   }
+ }
+ 
+ @media (max-width: 480px) {
   .pricing {
     padding: 90px 0 40px;
   }
@@ -753,9 +768,15 @@ html {
   .amount {
     font-size: 2rem;
   }
-}
-
-/* Carousel */
+ 
+   .pricing-note {
+    margin: 0 auto 20px;
+    font-size: 0.9rem;
+    padding: 0 12px;
+   }
+ }
+ 
+ /* Carousel */
 .carousel {
   position: relative;
   background: var(--brand-light);
