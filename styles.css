@@ -232,6 +232,60 @@ html {
   margin: 0
 }
 
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 32px 0 24px 0;
+}
+
+.hero-cta .btn {
+  padding: 12px 24px;
+  font-size: 0.95rem;
+}
+
+.btn.pill.hero-primary {
+  background: #0b6cf6;
+  border-color: #0b6cf6;
+  box-shadow: 0 8px 24px rgba(11, 108, 246, 0.35);
+}
+
+.btn.pill.hero-primary:hover {
+  background: #084fc1;
+  border-color: #084fc1;
+}
+
+.hero-highlights {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.hero-highlight {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.hero-highlight::before {
+  content: '\2713';
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.35);
+}
+
 .hero-image {
   flex: 1 1 54%;
   position: relative;
@@ -295,6 +349,14 @@ html {
     font-size: 2rem
   }
 
+  .hero-cta {
+    justify-content: flex-start;
+  }
+
+  .hero-highlights {
+    gap: 10px;
+  }
+
   .hero::after {
     height: 80px
   }
@@ -307,6 +369,16 @@ html {
 
   .hero-content .lead {
     font-size: 1rem
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-cta .btn {
+    width: 100%;
+    text-align: center;
   }
 }
 
@@ -382,6 +454,40 @@ html {
   line-height: 1.5
 }
 
+.approach-highlights {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.approach-highlight {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(4px);
+}
+
+.approach-highlight h3 {
+  margin: 0 0 12px 0;
+  font-size: 1.1rem;
+  color: #ffffff;
+}
+
+.approach-highlight p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 1024px) {
+  .approach-highlights {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 .approach::before {
   content: "";
   position: absolute;
@@ -408,6 +514,10 @@ html {
 
   .approach::before {
     height: 80px;
+  }
+
+  .approach-highlights {
+    grid-template-columns: 1fr;
   }
 }
 

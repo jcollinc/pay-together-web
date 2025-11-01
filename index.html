@@ -30,7 +30,7 @@
       </div>
 
       <div class="nav-actions">
-        <a class="btn pill" href="https://app.paytogether.io" target="_blank" rel="noopener noreferrer">
+        <a class="btn pill secondary hero-secondary" href="https://app.paytogether.io" target="_blank" rel="noopener noreferrer">
           Go To App
         </a>
       </div>
@@ -49,7 +49,7 @@
 
     <!-- Mobile dropdown menu (controlled via .open class) -->
     <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
-      <a class="btn pill" href="https://app.paytogether.io" target="_blank" rel="noopener noreferrer">Go To App</a>
+  <a class="btn pill secondary hero-secondary" href="https://app.paytogether.io" target="_blank" rel="noopener noreferrer">Go To App</a>
     </div>
   </header>
 
@@ -58,8 +58,18 @@
       <div class="container hero-inner">
         <!-- hero content -->
         <div class="hero-content">
-          <h1>See who owes what at a glance</h1>
-          <p class="lead">Create a group, add expenses in seconds, and get clear balances with smart settle-up suggestions.</p>
+          <h1>Split expenses. Settle up. Rinse and repeat.</h1>
+          <p class="lead">PayTogether keeps all your group's expenses organized with real-time balances, receipt scanning, and settle-up suggestions that make it easy to pay together.</p>
+
+          <div class="hero-cta">
+            <a class="btn pill secondary hero-secondary" href="#tour">See the product tour</a>
+          </div>
+
+          <ul class="hero-highlights">
+            <li class="hero-highlight">Create a group in under a minute for trips, roommates, or clubs.</li>
+            <li class="hero-highlight">Log expenses with custom split methods, reusable favorites, and receipts.</li>
+            <li class="hero-highlight">Get settle-up suggestions for settling balances in the least amount of steps.</li>
+          </ul>
         </div>
 
         <div class="hero-image">
@@ -76,22 +86,38 @@
 
         <div class="approach-content">
           <div class="approach-block">
-            <h1>Our Approach</h1>
+            <h1>Built for the real-life money moments you share</h1>
           </div>
 
           <div class="approach-block">
-            <p class="lead">Clear design, honest features, no fuss.</p>
+            <p class="lead">From weekend trips to long-term roommates, PayTogether keeps every member in sync—without spreadsheets or group-chat drama.</p>
           </div>
 
           <div class="approach-block">
-            <p>We built PayTogether to make tracking balances feel easy, fair, and drama-free. From trips to takeout, we
-              keep the math tidy so your group can focus on the good stuff.</p>
+            <p>
+              We sweat the details so you don't have to. Delightful design meets serious math: accurate balances, smart settle-up suggestions, and clear receipts that build trust among friends, family, and teams.
+            </p>
+          </div>
+
+          <div class="approach-highlights">
+            <div class="approach-highlight">
+              <h3>Transparent by default</h3>
+              <p>Everyone sees the same running totals, receipt images, and settle-up paths, so conversations start from a place of clarity.</p>
+            </div>
+            <div class="approach-highlight">
+              <h3>Fast where it counts</h3>
+              <p>Favorites, templates, and quick-add flows record the next expense in seconds—even when you're on the move.</p>
+            </div>
+            <div class="approach-highlight">
+              <h3>Built for trust</h3>
+              <p>Secure sharing and thoughtful permissions mean only your group sees its data, while everyone can pitch in and stay accountable.</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="carousel">
+  <section class="carousel" id="tour">
       <div class="wave-divider" aria-hidden="true">
         <svg viewBox="0 0 500 150" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M-0.00,50.10 C150.00,150.33 349.20,-50.10 512.79,61.23 L500.00,150.33 L-0.00,150.33 Z"
@@ -346,7 +372,7 @@
           },
           {
             question: 'Do all group members need accounts?',
-            answer: `Only people who want to view and interact with the group need accounts. If one person wants to track expenses for everyone, they can add everyone to splits without requiring anyone else to sign up. This works great when one person manages the group while others just settle up in person.`
+            answer: `Only people who want to view and interact with the group need accounts. Otherwise, if one person wants to track expenses for everyone, they can add anyone to splits without requiring anyone else to sign up.`
           },
           {
             question: 'Who needs PayTogether Plus?',
@@ -354,7 +380,7 @@
           },
           {
             question: 'How does receipt scanning work?',
-            answer: `Receipt scanning is a Plus feature, so a subscriber needs to upload the images. Once a Plus member adds a receipt for the group and verifies the details, all members — free or paid — can assign items to themselves. After assignments are complete, PayTogether generates the transaction showing how much each person owes.`
+            answer: `Receipt scanning is a Plus feature, so a subscriber needs to upload the image. Once the receipt is processed, all group members — free or paid — can review each individual expense and easily assign items to themselves. After assignments are finalized, PayTogether will generate a transaction reflecting how much each person owes.`
           },
           {
             question: 'Does PayTogether support different currencies?',
