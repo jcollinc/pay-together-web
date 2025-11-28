@@ -45,9 +45,9 @@
     <section class="legal-hero">
       <div class="legal-shell">
         <h1>Privacy Policy</h1>
-        <p class="lead">We built PayTogether to make splitting expenses simple and fair. This policy explains how we collect, use, and protect your information when you use our website and app.</p>
+        <p class="lead">PayTogether helps small groups keep receipts, IOUs, and settle-up plans in one place. This policy explains what we collect, why we collect it, and the simple ways you stay in control.</p>
         <div class="legal-meta">
-          <span>Effective: October 4, 2025</span>
+          <span>Effective: November 27, 2025</span>
           <span>Applies to: PayTogether website &amp; app</span>
         </div>
       </div>
@@ -62,124 +62,114 @@
       <div class="legal-shell">
         <article class="legal-article" aria-labelledby="privacy-intro">
           <div>
-            <h2 id="privacy-intro">Welcome to PayTogether</h2>
-            <p>Welcome to PayTogether! We built this app to make splitting expenses simple and fair. This Privacy Policy explains how we collect, use, and protect your information when you use our website and app. PayTogether ("we," "us," or "our") operates the expense-sharing platform available at <a href="https://app.paytogether.io" target="_blank" rel="noopener">https://app.paytogether.io</a>. If you have questions about this policy, contact us at <a href="mailto:privacy@paytogether.io">privacy@paytogether.io</a>.</p>
+            <h2 id="privacy-intro">Welcome</h2>
+            <p>PayTogether.io ("PayTogether," "we," "us") operates the expense sharing workspace at <a href="https://app.paytogether.io" target="_blank" rel="noopener">https://app.paytogether.io</a>. Questions about this policy? Email us at <a href="mailto:privacy@paytogether.io">privacy@paytogether.io</a>.</p>
           </div>
 
           <div>
-            <h2>Information We Collect</h2>
-            <h3>Information You Provide</h3>
-            <p>When you use PayTogether, you provide us with:</p>
+            <h2>Information we collect</h2>
+            <h3>What you type or upload</h3>
             <ul>
-              <li><strong>Account Information:</strong> Your name and email address when you sign up.</li>
-              <li><strong>Group and Transaction Data:</strong> Expense details you enter, such as descriptions, amounts, who paid, and how costs are split.</li>
-              <li><strong>Payment Information:</strong> When you subscribe to PayTogether Plus, Stripe (our payment processor) collects your billing name, email, and payment method details. We never see or store your credit card numbers.</li>
+              <li><strong>Account basics:</strong> Name, email, and authentication data.</li>
+              <li><strong>Profile settings:</strong> Display name, theme preferences, and settle-up payment methods (Venmo, PayPal, Zelle handles, etc.) you choose to save for sharing with others.</li>
+              <li><strong>Group data:</strong> Group names, member information, participant profiles, settle-up preferences, and notes.</li>
+              <li><strong>Transactions:</strong> Expense descriptions, amounts, categories, splits, attachments, and audit history. Saved favorites carry the same fields until you delete them.</li>
+              <li><strong>Receipt sessions:</strong> Uploaded images, extraction results, review edits, charge split configurations (taxes, gratuity, fees, discounts), payer selection, guest claims, settle-up instructions, and finalized transactions.</li>
+              <li><strong>Guest sharing:</strong> Display names guests choose, claim history, payment status, and the temporary access tokens you issue. Guests also see any payment methods you explicitly share with them.</li>
+              <li><strong>Notifications:</strong> We store notification records (balance changes, group activity) tied to your account so you can review recent alerts.</li>
+              <li><strong>Support messages:</strong> Anything you send to support, beta questionnaires, or feedback prompts.</li>
             </ul>
-            <h3>Information Collected Automatically</h3>
-            <p>Our app infrastructure automatically collects:</p>
+            <h3>Billing &amp; subscription information</h3>
+            <p>Stripe collects your payment method, billing name, and billing email when you subscribe to PayTogether Plus. We receive subscription status, the last four digits of your card, plan tier, and invoices—never full card numbers.</p>
+            <h3>Device and safety signals</h3>
             <ul>
-              <li><strong>Usage Data:</strong> How you interact with the app and which features you use.</li>
-              <li><strong>Device Information:</strong> Device type, operating system, and browser type.</li>
-              <li><strong>Log Data:</strong> IP address, access times, and pages viewed.</li>
-              <li><strong>Performance Data:</strong> Tools like Firebase Performance Monitoring and Crashlytics that help us identify bugs and improve stability.</li>
+              <li>Basic device details (browser, OS, screen size) and app version to debug issues.</li>
+              <li>Authentication, database, and rate-limit logs that capture user ID, request metadata, and timestamps to prevent abuse.</li>
+              <li>Error and performance traces (no keystrokes or browsing history).</li>
             </ul>
-            <h3>Information We Don’t Collect</h3>
-            <p>We do not collect or track:</p>
-            <ul>
-              <li>Your location or GPS data.</li>
-              <li>Your contacts or address book.</li>
-              <li>Demographic information beyond what you provide.</li>
-              <li>Social media profiles or connections.</li>
-            </ul>
+            <h3>Receipt extraction</h3>
+            <p>When you scan a receipt, we temporarily store the file and send the image (or text copy) to third-party services to transform it into structured line items. We only send the content you provide for this purpose, never your full account history.</p>
+            <h3>Currency conversion</h3>
+            <p>When a receipt is in a different currency than your group's home currency, we fetch exchange rates from third-party providers to display converted amounts. We do not share your financial data with these providers—only the currency pair is queried.</p>
+            <h3>What we don't collect</h3>
+            <p>No contact lists, GPS data, advertising identifiers, biometric data, or third-party bank credentials. Payment method handles you save (Venmo usernames, etc.) are stored only for display purposes and are never used to initiate transactions.</p>
           </div>
 
           <div>
-            <h2>How We Use Your Information</h2>
-            <p>We use your information to:</p>
+            <h2>How we use information</h2>
             <ul>
-              <li><strong>Provide the Service:</strong> Create your account, store your groups and transactions, calculate balances, and generate settle-up suggestions.</li>
-              <li><strong>Process Payments:</strong> Handle PayTogether Plus subscriptions through Stripe.</li>
-              <li><strong>Communicate with You:</strong> Send important service updates, respond to your questions, and provide customer support.</li>
-              <li><strong>Improve the App:</strong> Analyze usage patterns to fix bugs, add features, and enhance user experience.</li>
-              <li><strong>Maintain Security:</strong> Prevent fraud, abuse, and unauthorized access.</li>
-            </ul>
-          </div>
-
-          <div>
-            <h2>How We Store and Protect Your Information</h2>
-            <h3>Data Storage</h3>
-            <ul>
-              <li><strong>App Data:</strong> Your account, groups, and transactions are stored in Firebase Firestore, a secure cloud database operated by Google.</li>
-              <li><strong>Authentication:</strong> Your login sessions are managed by Firebase Authentication.</li>
-              <li><strong>Payment Data:</strong> Billing information is stored and processed by Stripe; we never store payment card details.</li>
-            </ul>
-            <h3>Security Measures</h3>
-            <ul>
-              <li>All data transmission is encrypted using HTTPS.</li>
-              <li>Firebase provides encryption at rest for stored data.</li>
-              <li>Access to your data is restricted through authentication and secure access controls.</li>
-              <li>Only members you invite to a group can view that group’s transactions.</li>
-            </ul>
-            <h3>Data Retention</h3>
-            <ul>
-              <li>Your data remains in our system until you request account deletion.</li>
-              <li>Backup copies and system logs may be retained for a limited period as part of our infrastructure’s automatic processes.</li>
-              <li>After account deletion, your data is removed from active systems, though backup copies may persist temporarily.</li>
+              <li><strong>Provide core features:</strong> Keep groups in sync, calculate balances, power favorites, and surface settle-up suggestions.</li>
+              <li><strong>Receipt scanning:</strong> Validate files, run extraction, let you configure charge splits, and convert approved claims into a single transaction.</li>
+              <li><strong>Guest participation:</strong> Generate invite links, show guest claims, display your shared payment methods to guests, and keep a short activity log so you can revoke access with confidence.</li>
+              <li><strong>Notifications:</strong> Alert you to balance changes and group activity so you stay informed without checking the app constantly.</li>
+              <li><strong>Support &amp; communication:</strong> Reply to questions, send essential service emails, and notify you about balance changes in your groups.</li>
+              <li><strong>Security:</strong> Detect fraud, enforce rate limits, and block abusive accounts.</li>
+              <li><strong>Product health:</strong> Measure aggregate usage (e.g., how many receipts finish extraction) to decide what to build next. We don't run ads or sell your data.</li>
             </ul>
           </div>
 
           <div>
-            <h2>How We Share Your Information</h2>
-            <p>We share your information only in these limited circumstances:</p>
-            <h3>Service Providers</h3>
+            <h2>How we share information</h2>
+            <h3>Vendors that keep PayTogether running</h3>
             <ul>
-              <li><strong>Firebase/Google Cloud:</strong> Hosts our database, authentication, and app infrastructure.</li>
-              <li><strong>Stripe:</strong> Processes PayTogether Plus subscription payments.</li>
-              <li><strong>Vercel:</strong> Hosts our web application.</li>
+              <li><strong>Cloud infrastructure providers:</strong> Authentication, database, file storage, and backend services.</li>
+              <li><strong>Hosting services:</strong> Web application and marketing site delivery.</li>
+              <li><strong>Stripe:</strong> Subscription billing and invoice emails.</li>
+              <li><strong>AI/ML services:</strong> Receipt image processing and data extraction. These services process the images you submit and return structured data that the app can use.</li>
+              <li><strong>Exchange rate providers:</strong> Currency conversion lookups (no personal data shared, only currency pairs).</li>
             </ul>
-            <p>These providers access your data only to perform services on our behalf and are obligated to protect it.</p>
-            <h3>Within Groups</h3>
-            <p>Group members can see the transactions, balances, and participant names within their shared groups. This is core to how the app works. We don’t share your information across groups or with people you haven’t invited.</p>
-            <h3>Legal Requirements</h3>
-            <p>We may disclose your information if required by law, court order, or government request, or if necessary to protect our rights, your safety, or others’ safety.</p>
-            <h3>No Advertising or Data Brokers</h3>
-            <p>We do not sell, rent, or share your information with advertisers or data brokers.</p>
+            <p>Each provider only accesses data that is necessary for their job and must safeguard it per their own contracts.</p>
+            <h3>People you invite</h3>
+            <p>Group members can see expenses, comments, settle-up instructions, and receipt claims inside that group. Guest links expose just the receipt session you explicitly share and can be revoked anytime. If you share payment methods with guests, those handles are visible until you disable them or revoke the link.</p>
+
+            <h3>Legal requirements</h3>
+            <p>We may disclose data if required by law, court order, or to protect someone from imminent harm.</p>
+            <h3>Never for ads</h3>
+            <p>We don't sell, rent, or trade your data with advertisers or data brokers. There is no third-party marketing inside the app.</p>
           </div>
 
           <div>
-            <h2>Your Rights and Choices</h2>
-            <h3>Account Access and Updates</h3>
-            <p>You can view and update your account information and transaction data directly in the app.</p>
-            <h3>Data Export</h3>
-            <p>PayTogether Plus subscribers can export their transaction data to CSV format.</p>
-            <h3>Account Deletion</h3>
-            <p>You may request deletion of your account and associated data by contacting us at <a href="mailto:privacy@paytogether.io">privacy@paytogether.io</a>. We’ll remove your information from active systems, subject to any legal retention requirements.</p>
+            <h2>Storage, retention, and deletion</h2>
+            <ul>
+              <li><strong>Application data:</strong> All data is stored with encryption at rest and HTTPS in transit. Access is controlled through authentication and admin tooling with audit logs.</li>
+              <li><strong>Receipt uploads:</strong> Stored in a private bucket while the session is active. Sessions expire automatically after roughly 30 days of inactivity. We keep minimal backups for disaster recovery.</li>
+              <li><strong>Guest participation:</strong> Guest names and claim totals stick around while the receipt is open and up to 30 days after everyone is marked paid, then they age out.</li>
+              <li><strong>Favorites:</strong> Saved until you delete them or remove your account.</li>
+              <li><strong>Notifications:</strong> Stored for a limited time to power the notification history view, then automatically purged.</li>
+              <li><strong>Subscription records:</strong> Stripe keeps legally required billing history even after you cancel; we store plan status and receipts for bookkeeping.</li>
+            </ul>
+            <p>You can request full account deletion by emailing <a href="mailto:privacy@paytogether.io">privacy@paytogether.io</a>. We remove active data promptly and clear cached/backed-up copies during the next scheduled purge window.</p>
           </div>
 
           <div>
-            <h2>International Users</h2>
-            <p>If you’re located outside the United States, your information will be transferred to and processed in the U.S., where our servers are located. If you have rights under your local privacy laws (such as GDPR in Europe), contact us to exercise rights such as access, correction, deletion, or data portability. We’ll respond to valid requests in accordance with applicable law.</p>
+            <h2>Your choices &amp; rights</h2>
+            <ul>
+              <li><strong>Access &amp; edit:</strong> Update your name, profile, payment methods, groups, and favorites directly in the app.</li>
+              <li><strong>Payment method sharing:</strong> Control which of your saved payment methods are shared with guests on a per-receipt basis.</li>
+              <li><strong>Guest links:</strong> Disable or regenerate any guest receipt link in one tap.</li>
+              <li><strong>Notifications:</strong> Manage notification preferences in your account settings.</li>
+              <li><strong>Deletion:</strong> You may request deletion of your account and associated data by contacting us at <a href="mailto:privacy@paytogether.io">privacy@paytogether.io</a>. We'll remove your information from active systems, subject to any legal retention requirements.</li>
+            </ul>
           </div>
 
           <div>
-            <h2>Cookies and Tracking</h2>
-            <p>PayTogether uses minimal cookies necessary for authentication and maintaining your login session (provided by Firebase Authentication). We do not currently use advertising or analytics cookies. If we add analytics tools in the future, we’ll update this policy and may provide opt-out options where required by law.</p>
+            <h2>Cookies &amp; local storage</h2>
+            <p>We use essential cookies to keep you signed in and store lightweight preferences (theme, dismissed tips) in local storage. There are no advertising cookies or cross-site trackers.</p>
           </div>
 
           <div>
             <h2>Age Requirements</h2>
-            <p>You must be at least 13 years old to use PayTogether. If you are under 18, you must have permission from a parent or guardian before signing up.</p>
+            <p>PayTogether is for users 13 and older. If you're under 18, you need permission from a parent or guardian.</p>
           </div>
 
           <div>
-            <h2>Changes to This Policy</h2>
-            <p>We may update this Privacy Policy from time to time. If we make material changes, we’ll notify you by email or through a prominent notice in the app. Your continued use of PayTogether after changes become effective means you accept the updated policy.</p>
+            <h2>Changes to this policy</h2>
+            <p>When we make material updates, we'll update the date above, email active account owners, or show an in-app notice. Using PayTogether after the update goes live means you agree to the new terms.</p>
           </div>
 
           <div>
-            <h2>Contact Us</h2>
-            <p>Questions about this Privacy Policy? Contact us at <a href="mailto:privacy@paytogether.io">privacy@paytogether.io</a>.</p>
-            <p><em>Last updated: October 10, 2025</em></p>
+            <h2>Contact</h2>
+            <p>Have a privacy question, want to exercise a right, or spotted something unclear? Email <a href="mailto:privacy@paytogether.io">privacy@paytogether.io</a>.</p>
           </div>
         </article>
       </div>
@@ -202,7 +192,7 @@
     </div>
     <div class="footer-bottom">
       <div class="container footer-bottom-inner">
-        <p class="footer-copy">© 2025 PayTogether.io. All rights reserved.</p>
+  <p class="footer-copy">© 2025 PayTogether.io. All rights reserved.</p>
         <nav class="footer-links" aria-label="Legal links">
           <a href="../privacy/">Privacy Policy</a>
           <a href="../terms/">Terms of Service</a>

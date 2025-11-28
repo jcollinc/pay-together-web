@@ -127,113 +127,7 @@
       <div class="container carousel-inner">
         <div class="glide" id="glide">
           <div class="glide__track" data-glide-el="track">
-            <ul class="glide__slides">
-              <li class="glide__slide">
-                <div class="carousel-item">
-                  <div class="carousel-card"><img src="assets/images/01 - Sign In.png" alt="Sign In" />
-                  </div>
-                  <h2 class="carousel-caption">Sign In</h2>
-                  <p class="carousel-sub">Sign up with your email, or log in with your Google account</p>
-                </div>
-              </li>
-              <li class="glide__slide">
-                <div class="carousel-item">
-                  <div class="carousel-card"><img src="assets/images/02 - Your Groups.png" alt="Your Groups" />
-                  </div>
-                  <h2 class="carousel-caption">Your Groups</h2>
-                  <p class="carousel-sub">Create or join a group in seconds; keep trips, roommates, and projects separate</p>
-                </div>
-              </li>
-              <li class="glide__slide">
-                <div class="carousel-item">
-                    <div class="carousel-card"><img src="assets/images/03 - Log Expenses.png" alt="Log Expenses" /></div>
-                    <h2 class="carousel-caption">Add & Split</h2>
-                    <p class="carousel-sub">Log expenses with equal, custom, or percentage shares</p>
-                </div>
-              </li>
-              <li class="glide__slide">
-                <div class="carousel-item">
-                  <div class="carousel-card"><img src="assets/images/04 - Favorites.png" alt="Favorites" /></div>
-                  <h2 class="carousel-caption">Favorites</h2>
-                  <p class="carousel-sub">Save common expenses as favorites for instant one-click entry</p>
-                </div>
-              </li>
-              <li class="glide__slide">
-                <div class="carousel-item">
-                  <div class="carousel-card"><img src="assets/images/05 - Dynamic Templates.png" alt="Dynamic Templates" />
-                  </div>
-                  <h2 class="carousel-caption">Dynamic Templates</h2>
-                  <p class="carousel-sub">Use variables like [Month] in favorites to create smart, updating templates</p>
-                </div>
-              </li>
-              <li class="glide__slide">
-                <div class="carousel-item">
-                    <div class="carousel-card"><img src="assets/images/06 - Balance Summary.png" alt="Balance Summary" /></div>
-                    <h2 class="carousel-caption">Balance Summary</h2>
-                    <p class="carousel-sub">See clear totals and who's up or down at a glance</p>
-                </div>
-              </li>
-              <li class="glide__slide">
-                <div class="carousel-item">
-                    <div class="carousel-card"><img src="assets/images/07 - Transaction Details.png" alt="Transaction Details" /></div>
-                    <h2 class="carousel-caption">Transaction Details</h2>
-                    <p class="carousel-sub">Review who paid what and how expenses were split</p>
-                </div>
-              </li>
-              <li class="glide__slide">
-                <div class="carousel-item">
-                    <div class="carousel-card"><img src="assets/images/08 - Settle Up.png"
-                      alt="Settle Up" /></div>
-                    <h2 class="carousel-caption">Settle Up</h2>
-                    <p class="carousel-sub">Get smart suggestions for settling balances in the fewest steps</p>
-                </div>
-              </li>
-              <li class="glide__slide">
-                <div class="carousel-item">
-                  <div class="carousel-card"><img src="assets/images/09 - Search and Filter.png" alt="Search and Filter" />
-                  </div>
-                  <h2 class="carousel-caption">Search & Filter</h2>
-                  <p class="carousel-sub">Find specific transactions with powerful search and filtering tools</p>
-                </div>
-              </li>
-              <li class="glide__slide">
-                <div class="carousel-item">
-                  <div class="carousel-card"><img src="assets/images/10 - Choose a Theme.png" alt="Choose a Theme" />
-                  </div>
-                  <h2 class="carousel-caption">Personalize</h2>
-                  <p class="carousel-sub">Choose from multiple themes to match your style</p>
-                </div>
-              </li>
-              <li class="glide__slide">
-                <div class="carousel-item">
-                  <div class="carousel-card"><img src="assets/images/11 - Upload Receipt.png" alt="Upload Receipt" /></div>
-                  <h2 class="carousel-caption">Upload Receipts</h2>
-                  <p class="carousel-sub">Generate transactions from a receipt photo so nothing gets lost in the shuffle.</p>
-                </div>
-              </li>
-              <li class="glide__slide">
-                <div class="carousel-item">
-                  <div class="carousel-card"><img src="assets/images/12 - View Uploaded Receipts.png" alt="View Uploaded Receipts" /></div>
-                  <h2 class="carousel-caption">Review Receipts</h2>
-                  <p class="carousel-sub">Open any uploaded receipt right from the group to confirm the details.</p>
-                </div>
-              </li>
-              <li class="glide__slide">
-                <div class="carousel-item">
-                  <div class="carousel-card"><img src="assets/images/13 - Collaboratively Assign Items.png" alt="Collaboratively Assign Items" /></div>
-                  <h2 class="carousel-caption">Collaborative Splits</h2>
-                  <p class="carousel-sub">Assign receipt items together so everyone pays exactly what they owe.</p>
-                </div>
-              </li>
-              <li class="glide__slide">
-                <div class="carousel-item">
-                  <div class="carousel-card"><img src="assets/images/14 - Spending Analytics.png" alt="Spending Analytics" />
-                  </div>
-                  <h2 class="carousel-caption">Spending Analytics</h2>
-                  <p class="carousel-sub">Get insights into your spending patterns and track expenses over time</p>
-                </div>
-              </li>
-            </ul>
+            <ul class="glide__slides" id="carousel-slides"></ul>
           </div>
           <div class="glide__arrows" data-glide-el="controls">
             <button class="glide__arrow glide__arrow--left carousel-btn" data-glide-dir="<">←</button>
@@ -342,21 +236,106 @@
 
     <script>
       (function () {
+        var carouselData = [
+          { image: 'Sign In.png', 
+            caption: 'Sign In', 
+            sub: 'Sign up with your email, or log in with your Google account' 
+          },
+          { image: 'Your Groups.png', 
+            caption: 'Your Groups', 
+            sub: 'Create or join a group in seconds; keep trips, roommates, and projects separate' 
+          },
+          { image: 'Log Expenses.png', 
+            caption: 'Add & Split', 
+            sub: 'Log expenses with equal, custom, or percentage shares' 
+          },
+          { image: 'Balance Summary.png', 
+            caption: 'Balance Summary', 
+            sub: 'See clear totals and who\'s up or down at a glance' 
+          },
+          { image: 'Transaction Details.png', 
+            caption: 'Transaction Details', 
+            sub: 'Review who paid what and how expenses were split' 
+          },
+          { image: 'Settle Up.png', 
+            caption: 'Settle Up', 
+            sub: 'Get smart suggestions for settling balances in the fewest steps' 
+          },
+          { image: 'Favorites.png', 
+            caption: 'Favorites', 
+            sub: 'Save common expenses as favorites for instant one-click entry' 
+          },
+          { image: 'Dynamic Templates.png', 
+            caption: 'Dynamic Templates', 
+            sub: 'Use variables like [Month] in favorites to create smart, updating templates' 
+          },
+          { image: 'Search and Filter.png', 
+            caption: 'Search & Filter', 
+            sub: 'Find specific transactions with powerful search and filtering tools' 
+          },
+          { image: 'Choose a Theme.png', 
+            caption: 'Personalize', 
+            sub: 'Choose from multiple themes to match your style'
+          },
+          { image: 'Notifications.png', 
+            caption: 'Stay in the Loop', 
+            sub: 'Get notified when balances change so you never miss a shared expense' 
+          },
+          { image: 'Upload Receipt.png', 
+            caption: 'Upload Receipts', 
+            sub: 'Snap a photo of any receipt and extract the line items automatically' 
+          },
+          { image: 'Receipt Setup.png', 
+            caption: 'Configure Your Receipt', 
+            sub: 'Choose who paid, set the date and category, and decide how to split taxes and tips' 
+          },
+          { image: 'Charge Split Modes.png', 
+            caption: 'Flexible Charge Splitting', 
+            sub: 'Split taxes, tips, fees, and discounts equally, proportionally, or with custom amounts' 
+          },
+          { image: 'Share Payment Methods.png', 
+            caption: 'Share Payment Methods', 
+            sub: 'Let guests see exactly how to pay you back with your saved Venmo, PayPal, or Zelle handles' 
+          },
+          { image: 'Claim Items.png', 
+            caption: 'Claim Your Items', 
+            sub: 'Group members and guests select exactly what they ordered from the receipt' 
+          },
+          { image: 'Guest Sharing.png', 
+            caption: 'Invite Guests', 
+            sub: 'Share a link with anyone so they can claim items without creating an account' 
+          },
+          { image: 'Guest View.png', 
+            caption: 'Guest Experience', 
+            sub: 'Guests see their total and payment instructions - settling up is just a tap away' 
+          },
+          { image: 'Review Finalize.png', 
+            caption: 'Review & Finalize', 
+            sub: 'See each person\'s share before generating a single transaction for the group' 
+          },
+          { image: 'Spending Analytics.png', 
+            caption: 'Spending Analytics', 
+            sub: 'Get insights into your spending patterns and track expenses over time' 
+          }
+        ];
+
         var featureData = {
           free: [
             'Unlimited groups',
             'Unlimited expenses (no daily limits)',
-            'Up to 5 favorites',
+            'Up to 5 favorites with dynamic templates',
             'Custom expense categories',
-            'Basic spending insights',
+            'Balance change notifications',
             'Smart settle-up suggestions'
           ],
           plus: [
             'Receipt scanning',
+            'Guest sharing with payment method links',
+            'Flexible charge splitting (tax, tip, fees)',
             'Unlimited favorites',
             'Search and filter transactions',
             'Advanced spending analytics',
-            'Export data to CSV/Excel',
+            'Export data to CSV',
             'Early access to new features'
           ]
         };
@@ -372,19 +351,27 @@
           },
           {
             question: 'Do all group members need accounts?',
-            answer: `Only people who want to view and interact with the group need accounts. Otherwise, if one person wants to track expenses for everyone, they can add anyone to splits without requiring anyone else to sign up.`
+            answer: `Only people who want to view and interact with the group need accounts. Otherwise, if one person wants to track expenses for everyone, they can add anyone to splits without requiring anyone else to sign up. For receipt scanning, guests can claim items via a shared link without creating an account.`
           },
           {
             question: 'Who needs PayTogether Plus?',
-            answer: `PayTogether Plus is perfect for power users who want enhanced personal features. Plus subscribers get receipt scanning, unlimited favorites, detailed analytics, CSV exports, and advanced search and filter capabilities.`
+            answer: `PayTogether Plus is perfect for power users who want enhanced personal features. Plus subscribers get receipt scanning, guest sharing with payment method links, flexible charge splitting for taxes and tips, unlimited favorites, detailed analytics, CSV exports, and advanced search and filter capabilities.`
           },
           {
             question: 'How does receipt scanning work?',
-            answer: `Receipt scanning is a Plus feature, so a subscriber needs to upload the image. Once the receipt is processed, all group members — free or paid — can review each individual expense and easily assign items to themselves. After assignments are finalized, PayTogether will generate a transaction reflecting how much each person owes.`
+            answer: `A Plus subscriber uploads a receipt photo and the line items, taxes, tips, and totals are automatically extracted. In the receipt workspace, you configure how charges are split, then share links with group members or guests to claim their items. Once everyone has claimed, you finalize the receipt and PayTogether generates a single transaction reflecting what each person owes.`
+          },
+          {
+            question: 'How do guests claim items on a receipt?',
+            answer: `When you share a guest link, anyone with the link can view the receipt and claim items without signing up. They'll see their total and your payment methods (Venmo, PayPal, Zelle, etc.) so they know exactly how to pay you back. You can mark guests as paid and revoke links at any time.`
+          },
+          {
+            question: 'How do charge splits work?',
+            answer: `For each receipt, you can split taxes, gratuity, fees, and discounts in different ways: equally among all participants, proportionally based on subtotals, or with custom amounts per person. This gives you full control over how shared charges are allocated.`
           },
           {
             question: 'Does PayTogether support different currencies?',
-            answer: `We're launching with a limited number of supported currencies, with plans to add more. We'll also add automatic conversions so you can track multiple currencies within the same group. Until then, each group uses a single currency, and updating it won't alter existing expense amounts.`
+            answer: `Yes! Each group has a home currency. Expenses and receipts scanned in a different currency are automatically converted using current exchange rates. The converted amounts appear alongside the original currency so everyone knows exactly what they owe.`
           },
           {
             question: 'What happens to my extra favorites if I leave Plus?',
@@ -420,6 +407,24 @@
           });
         }
 
+        function renderCarousel(listId, items) {
+          var target = document.getElementById(listId);
+          if (!target) return;
+          target.innerHTML = '';
+          items.forEach(function (item) {
+            var li = document.createElement('li');
+            li.className = 'glide__slide';
+            li.innerHTML =
+              '<div class="carousel-item">' +
+                '<div class="carousel-card"><img src="assets/images/features/' + item.image + '" alt="' + item.caption + '" /></div>' +
+                '<h2 class="carousel-caption">' + item.caption + '</h2>' +
+                '<p class="carousel-sub">' + item.sub + '</p>' +
+              '</div>';
+            target.appendChild(li);
+          });
+        }
+
+        renderCarousel('carousel-slides', carouselData);
         renderFeatureList('free-features', featureData.free);
 
           function renderFaqList(listId, items) {
