@@ -59,16 +59,19 @@
         <!-- hero content -->
         <div class="hero-content">
           <h1>Split expenses. Settle up. Rinse and repeat.</h1>
-          <p class="lead">PayTogether keeps all your group's expenses organized with real-time balances, receipt scanning, and settle-up suggestions that make it easy to pay together.</p>
+          <p class="lead">PayTogether goes beyond basic splitting with automatic receipt scanning, multi-currency support, guest sharing, and intelligent settle-up suggestions - all in a clean, modern interface.</p>
 
           <div class="hero-cta">
             <a class="btn pill secondary hero-secondary" href="#tour">See the product tour</a>
           </div>
 
           <ul class="hero-highlights">
-            <li class="hero-highlight">Create a group in under a minute - perfect for couples, trips, roommates, clubs, and more.</li>
-            <li class="hero-highlight">Log expenses with custom split methods, reusable favorites, and receipts.</li>
-            <li class="hero-highlight">Get settle-up suggestions for settling balances in the least amount of steps.</li>
+            <li class="hero-highlight">Scan receipts and automatically extract line items, taxes, and tips.</li>
+            <li class="hero-highlight">Share links with guests so anyone can claim items - no account required.</li>
+            <li class="hero-highlight">Handle multiple currencies with automatic conversion for travel groups.</li>
+            <li class="hero-highlight">Split taxes, tips, fees, and discounts with flexible charge options.</li>
+            <li class="hero-highlight">Get smart settle-up suggestions that minimize the number of payments.</li>
+            <li class="hero-highlight">Enjoy a clean, modern design that's actually pleasant to use.</li>
           </ul>
         </div>
 
@@ -237,10 +240,41 @@
     <script>
       (function () {
         var carouselData = [
+          // Intro slides first
           { image: 'Sign In.png', 
             caption: 'Sign In', 
             sub: 'Sign up with your email, or log in with your Google account' 
           },
+          { image: 'Choose a Theme.png', 
+            caption: 'Personalize', 
+            sub: 'Choose from multiple themes to match your style'
+          },
+          // Differentiating features
+          { image: 'Upload Receipt.png', 
+            caption: 'Scan Any Receipt', 
+            sub: 'Snap a photo and automatically extract line items, taxes, tips, and totals' 
+          },
+          { image: 'Claim Items.png', 
+            caption: 'Claim Your Items', 
+            sub: 'Group members and guests select exactly what they ordered from the receipt' 
+          },
+          { image: 'Guest Sharing.png', 
+            caption: 'Invite Guests', 
+            sub: 'Share a link with anyone so they can claim items without creating an account' 
+          },
+          { image: 'Guest View.png', 
+            caption: 'Guest Experience', 
+            sub: 'Guests see their total and payment instructions—settling up is just a tap away' 
+          },
+          { image: 'Charge Split Modes.png', 
+            caption: 'Flexible Charge Splitting', 
+            sub: 'Split taxes, tips, fees, and discounts equally, proportionally, or with custom amounts' 
+          },
+          { image: 'Settle Up.png', 
+            caption: 'Smart Settle Up', 
+            sub: 'Get intelligent suggestions for settling balances in the fewest steps' 
+          },
+          // Core features
           { image: 'Your Groups.png', 
             caption: 'Your Groups', 
             sub: 'Create or join a group in seconds; keep trips, roommates, and projects separate' 
@@ -257,10 +291,7 @@
             caption: 'Transaction Details', 
             sub: 'Review who paid what and how expenses were split' 
           },
-          { image: 'Settle Up.png', 
-            caption: 'Settle Up', 
-            sub: 'Get smart suggestions for settling balances in the fewest steps' 
-          },
+          // Power features
           { image: 'Favorites.png', 
             caption: 'Favorites', 
             sub: 'Save common expenses as favorites for instant one-click entry' 
@@ -273,49 +304,27 @@
             caption: 'Search & Filter', 
             sub: 'Find specific transactions with powerful search and filtering tools' 
           },
-          { image: 'Choose a Theme.png', 
-            caption: 'Personalize', 
-            sub: 'Choose from multiple themes to match your style'
+          { image: 'Spending Analytics.png', 
+            caption: 'Spending Analytics', 
+            sub: 'Get insights into your spending patterns and track expenses over time' 
           },
-          { image: 'Notifications.png', 
-            caption: 'Stay in the Loop', 
-            sub: 'Get notified when balances change so you never miss a shared expense' 
-          },
-          { image: 'Upload Receipt.png', 
-            caption: 'Upload Receipts', 
-            sub: 'Snap a photo of any receipt and extract the line items automatically' 
-          },
+          // Receipt workflow details
           { image: 'Receipt Setup.png', 
             caption: 'Configure Your Receipt', 
             sub: 'Choose who paid, set the date and category, and decide how to split taxes and tips' 
-          },
-          { image: 'Charge Split Modes.png', 
-            caption: 'Flexible Charge Splitting', 
-            sub: 'Split taxes, tips, fees, and discounts equally, proportionally, or with custom amounts' 
           },
           { image: 'Share Payment Methods.png', 
             caption: 'Share Payment Methods', 
             sub: 'Let guests see exactly how to pay you back with your saved Venmo, PayPal, or Zelle handles' 
           },
-          { image: 'Claim Items.png', 
-            caption: 'Claim Your Items', 
-            sub: 'Group members and guests select exactly what they ordered from the receipt' 
-          },
-          { image: 'Guest Sharing.png', 
-            caption: 'Invite Guests', 
-            sub: 'Share a link with anyone so they can claim items without creating an account' 
-          },
-          { image: 'Guest View.png', 
-            caption: 'Guest Experience', 
-            sub: 'Guests see their total and payment instructions - settling up is just a tap away' 
-          },
           { image: 'Review Finalize.png', 
             caption: 'Review & Finalize', 
             sub: 'See each person\'s share before generating a single transaction for the group' 
           },
-          { image: 'Spending Analytics.png', 
-            caption: 'Spending Analytics', 
-            sub: 'Get insights into your spending patterns and track expenses over time' 
+          // Utilities
+          { image: 'Notifications.png', 
+            caption: 'Stay in the Loop', 
+            sub: 'Get notified when balances change so you never miss a shared expense' 
           }
         ];
 
