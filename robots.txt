@@ -1,0 +1,6 @@
+# robots.txt for paytogether.io
+
+User-agent: *
+Allow: /
+
+Sitemap: https://paytogether.io/sitemap.xml
