@@ -93,6 +93,29 @@ html {
   transform: translateY(-1px);
 }
 
+/* Google Play Badge */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.play-badge-link {
+  display: flex;
+  align-items: center;
+  transition: transform 160ms ease, opacity 160ms ease;
+}
+
+.play-badge-link:hover {
+  transform: translateY(-1px);
+  opacity: 0.9;
+}
+
+.play-badge {
+  height: 40px;
+  width: auto;
+}
+
 /* Mobile menu */
 .mobile-menu-toggle {
   display: none;
@@ -141,6 +164,16 @@ html {
 .mobile-menu .btn.pill:hover {
   background: rgba(0, 78, 0, 1);
   transform: translateY(-1px);
+}
+
+.mobile-menu .mobile-play-badge {
+  display: flex;
+  justify-content: center;
+  margin: 20px 20px 0 20px;
+}
+
+.mobile-menu .mobile-play-badge .play-badge {
+  height: 48px;
 }
 
 @media (max-width:768px) {
@@ -869,6 +902,27 @@ html {
 .savings {
   color: var(--brand-light);
   font-weight: 600;
+}
+
+.pricing-availability {
+  margin: 0 auto 32px;
+  text-align: center;
+  max-width: 760px;
+}
+
+.pricing-availability .pricing-note {
+  margin: 0 auto 12px;
+}
+
+.pricing-availability .pricing-note:last-child {
+  margin-bottom: 0;
+}
+
+.pricing-icon {
+  width: 18px;
+  height: 18px;
+  vertical-align: -3px;
+  margin-right: 4px;
 }
 
 .pricing-note {
