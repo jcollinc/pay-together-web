@@ -42,7 +42,7 @@ If you spot a typo or have a suggestion for the site, feel free to open an issue
 
 ## License
 
-© 2025 PayTogether.io. All rights reserved.
+© 2026 MajaLabs LLC. All rights reserved.
 
 ---
 
