@@ -166,13 +166,14 @@ html {
   transform: translateY(-1px);
 }
 
-.mobile-menu .mobile-play-badge {
+.mobile-store-badges {
   display: flex;
   justify-content: center;
+  gap: 12px;
   margin: 20px 20px 0 20px;
 }
 
-.mobile-menu .mobile-play-badge .play-badge {
+.mobile-store-badges .play-badge {
   height: 48px;
 }
 
