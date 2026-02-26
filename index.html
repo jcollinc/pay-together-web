@@ -50,30 +50,22 @@
         <a href="https://play.google.com/store/apps/details?id=app.paytogether" target="_blank" rel="noopener noreferrer" class="play-badge-link" aria-label="Get it on Google Play">
           <img src="assets/logos/google_play_store_badge.svg" alt="Get it on Google Play" class="play-badge" />
         </a>
+        <a href="https://app.paytogether.io" target="_blank" rel="noopener noreferrer" class="play-badge-link" aria-label="Open Web App">
+          <img src="assets/logos/web_app.svg" alt="Open Web App" class="play-badge" />
+        </a>
       </div>
-
-      <!-- Mobile: menu toggle replaces the visible button at small widths -->
-      <button class="mobile-menu-toggle" aria-controls="mobileMenu" aria-expanded="false" aria-label="Open menu">
-        <!-- simple hamburger icon -->
-        <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true">
-          <rect y="1" width="20" height="2" rx="1" fill="currentColor" />
-          <rect y="6" width="20" height="2" rx="1" fill="currentColor" />
-          <rect y="11" width="20" height="2" rx="1" fill="currentColor" />
-        </svg>
-      </button>
     </nav>
 
-    <!-- Mobile dropdown menu (controlled via .open class) -->
-    <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
-      <div class="mobile-store-badges">
-        <a href="https://apps.apple.com/us/app/paytogether-split-expenses/id6759358041" target="_blank" rel="noopener noreferrer" class="play-badge-link" aria-label="Download on the App Store">
-          <img src="assets/logos/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg" alt="Download on the App Store" class="play-badge" />
-        </a>
-        <a href="https://play.google.com/store/apps/details?id=app.paytogether" target="_blank" rel="noopener noreferrer" class="play-badge-link" aria-label="Get it on Google Play">
-          <img src="assets/logos/google_play_store_badge.svg" alt="Get it on Google Play" class="play-badge" />
-        </a>
-      </div>
+    <div class="hero-badges">
+      <a href="https://apps.apple.com/us/app/paytogether-split-expenses/id6759358041" target="_blank" rel="noopener noreferrer" class="play-badge-link" aria-label="Download on the App Store">
+        <img src="assets/logos/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg" alt="Download on the App Store" class="play-badge" />
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=app.paytogether" target="_blank" rel="noopener noreferrer" class="play-badge-link" aria-label="Get it on Google Play">
+        <img src="assets/logos/google_play_store_badge.svg" alt="Get it on Google Play" class="play-badge" />
+      </a>
+      <a href="https://app.paytogether.io" target="_blank" rel="noopener noreferrer" class="play-badge-link" aria-label="Open Web App">
+        <img src="assets/logos/web_app.svg" alt="Open Web App" class="play-badge" />
+      </a>
     </div>
   </header>
 
@@ -516,24 +508,6 @@
     </div>
   </footer>
 
-  <script>
-    (function () {
-      var toggle = document.querySelector('.mobile-menu-toggle');
-      var menu = document.getElementById('mobileMenu');
-      if (!toggle || !menu) return;
-      toggle.addEventListener('click', function () {
-        var isOpen = toggle.getAttribute('aria-expanded') === 'true';
-        toggle.setAttribute('aria-expanded', String(!isOpen));
-        if (isOpen) {
-          menu.classList.remove('open');
-          menu.setAttribute('aria-hidden', 'true');
-        } else {
-          menu.classList.add('open');
-          menu.setAttribute('aria-hidden', 'false');
-        }
-      });
-    })();
-  </script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       if (typeof lucide !== 'undefined') {

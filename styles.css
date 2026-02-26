@@ -116,75 +116,27 @@ html {
   width: auto;
 }
 
-/* Mobile menu */
-.mobile-menu-toggle {
+/* Hero badges (mobile only) */
+.hero-badges {
   display: none;
-  background: transparent;
-  border: 0;
-  color: white;
-  margin-left: 12px;
-  padding: 8px;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 200ms ease;
-}
-
-.mobile-menu-toggle:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.mobile-menu {
-  display: block;
-  padding: 0 20px;
-  background: #6d8f78;
-  overflow: hidden;
-  max-height: 0;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 1000;
-}
-
-.mobile-menu.open {
-  transform: translateY(0);
-  opacity: 1;
-  visibility: visible;
-  max-height: 200px;
-}
-
-.mobile-menu .btn.pill {
-  display: block;
-  width: calc(100% - 40px);
-  margin: 20px 20px;
-  text-align: center;
-  background: rgba(0, 78, 0, 0.9);
-  transition: all 200ms ease;
-}
-
-.mobile-menu .btn.pill:hover {
-  background: rgba(0, 78, 0, 1);
-  transform: translateY(-1px);
-}
-
-.mobile-store-badges {
-  display: flex;
   justify-content: center;
-  gap: 12px;
-  margin: 20px 20px 0 20px;
+  gap: 10px;
+  padding: 12px 20px;
+  background: #6d8f78;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.mobile-store-badges .play-badge {
-  height: 48px;
+.hero-badges .play-badge {
+  height: 36px;
 }
 
 @media (max-width:768px) {
   .nav-actions {
-    display: none
+    display: none;
   }
 
-  .mobile-menu-toggle {
-    display: inline-flex;
-    align-items: center
+  .hero-badges {
+    display: flex;
   }
 
   .logo-img {
@@ -214,13 +166,6 @@ html {
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-
-  .mobile-menu,
-  .mobile-menu.open {
-    transition: none
-  }
-}
 
 /* Hero */
 .hero {
