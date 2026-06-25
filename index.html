@@ -94,7 +94,7 @@
         </div>
 
         <div class="hero-image">
-          <img src="assets/images/hero.jpg" alt="Friends splitting a bill" />
+          <img src="assets/images/hero.webp" alt="Friends splitting a bill" fetchpriority="high" />
         </div>
       </div>
     </section>
@@ -102,7 +102,7 @@
     <section class="approach">
       <div class="container approach-inner">
         <div class="approach-image">
-          <img src="assets/images/approach.jpg" alt="Illustration of our approach" />
+          <img src="assets/images/approach.webp" alt="Illustration of our approach" loading="lazy" />
         </div>
 
         <div class="approach-content">
@@ -253,47 +253,47 @@
     <script>
       (function () {
         var carouselData = [
-          { image: '01 Your Groups.png',
+          { image: '01 Your Groups.webp',
             caption: 'Your Groups',
             sub: 'See every group at a glance, with participants, join codes, and recent activity all in one place'
           },
-          { image: '02 Choose a Theme.png',
+          { image: '02 Choose a Theme.webp',
             caption: 'Make It Yours',
             sub: 'Switch between light, dark, and colorful themes so the app looks the way you like'
           },
-          { image: '03 Share the Receipt.png',
+          { image: '03 Share the Receipt.webp',
             caption: 'Share the Receipt',
             sub: 'Post a receipt and watch claims roll in live, with totals and progress updating in real time'
           },
-          { image: '04 Claim Your Items.png',
+          { image: '04 Claim Your Items.webp',
             caption: 'Claim Your Items',
             sub: 'Everyone taps exactly what they ordered, and their running total updates instantly'
           },
-          { image: '05 Split It Fairly.png',
+          { image: '05 Split It Fairly.webp',
             caption: 'Split It Fairly',
             sub: 'Divide taxes, tips, and fees proportionally, equally, or with custom amounts before anyone claims'
           },
-          { image: '06 You\'re All Set.png',
+          { image: '06 You\'re All Set.webp',
             caption: 'You\'re All Set',
             sub: 'Get a clear summary of what you claimed and what you owe, with next steps to settle up'
           },
-          { image: '07 Invite Guests.png',
+          { image: '07 Invite Guests.webp',
             caption: 'Invite Guests',
             sub: 'Share a link with anyone outside your group, no account needed to claim items or pay'
           },
-          { image: '08 Track Guests.png',
+          { image: '08 Track Guests.webp',
             caption: 'Track Guests',
             sub: 'See who has claimed, who has paid, and who still owes, and mark guests settled as they pay'
           },
-          { image: '09 Settle Up.png',
+          { image: '09 Settle Up.webp',
             caption: 'Smart Settle Up',
             sub: 'Get the fewest payments needed to clear every balance, recorded with a single tap'
           },
-          { image: '10 Get Paid Back.png',
+          { image: '10 Get Paid Back.webp',
             caption: 'Get Paid Back',
             sub: 'Add your Venmo, Cash App, or other handles so people know exactly how to pay you back'
           },
-          { image: '11 Save Favorites.png',
+          { image: '11 Save Favorites.webp',
             caption: 'Save Favorites',
             sub: 'Store recurring expenses for one-tap entry, with smart [Month] and [Day] variables'
           }
@@ -399,7 +399,7 @@
             li.className = 'glide__slide';
             li.innerHTML =
               '<div class="carousel-item">' +
-                '<div class="carousel-card"><img src="assets/images/features/' + item.image + '" alt="' + item.caption + '" /></div>' +
+                '<div class="carousel-card"><img src="assets/images/features/' + item.image + '" alt="' + item.caption + '" loading="lazy" /></div>' +
                 '<h2 class="carousel-caption">' + item.caption + '</h2>' +
                 '<p class="carousel-sub">' + item.sub + '</p>' +
               '</div>';
