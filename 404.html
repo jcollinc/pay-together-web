@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Page not found - PayTogether</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/svg+xml" href="/assets/logos/icon.svg">
+  <link rel="alternate icon" href="/assets/logos/icon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/logos/apple-touch-icon-180x180.png">
+  <meta name="theme-color" content="#ffffff">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+  <style>
+    .notfound {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 48px 24px;
+      gap: 20px;
+    }
+
+    .notfound__logo {
+      height: clamp(42px, 7.5vw, 58px);
+      width: auto;
+      margin-bottom: 16px;
+    }
+
+    .notfound__code {
+      font-size: clamp(1.5rem, 4.5vw, 2.25rem);
+      font-weight: 700;
+      line-height: 1;
+      color: var(--brand-light);
+      letter-spacing: 0.02em;
+      margin: 0;
+    }
+
+    .notfound__title {
+      font-size: clamp(24px, 5vw, 36px);
+      font-weight: 600;
+      color: var(--brand-dark);
+      margin: 0;
+    }
+
+    .notfound__text {
+      max-width: 460px;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .notfound__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="notfound">
+    <img src="/assets/logos/wordmark.svg" alt="PayTogether" class="notfound__logo" />
+    <p class="notfound__code">404</p>
+    <h1 class="notfound__title">This page ghosted the group</h1>
+    <p class="notfound__text">
+      We couldn't find the page you're looking for. It may have moved, or the link might be slightly off.
+    </p>
+    <div class="notfound__actions">
+      <a class="btn pill primary" href="/">Back to home</a>
+      <a class="btn pill secondary" href="https://app.paytogether.io" target="_blank" rel="noopener noreferrer">Open the app</a>
+    </div>
+  </main>
+</body>
+
+</html>
